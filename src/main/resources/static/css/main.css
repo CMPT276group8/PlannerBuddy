@@ -12,7 +12,7 @@
 :root{
     --body-color: #E4E9F7;
     --sidebar-color: #FFF;
-    --primary-color: #FB3640;
+    --primary-color: #ff5945;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: black;
@@ -299,4 +299,75 @@ body.dark .switch::before{
 }
 body.dark .home .text{
     color: var(--text-color);
+}
+
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 450px;
+    width: 100%;
+    background: var(--sidebar-color);
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.06);
+}
+.wrapper header{
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 17px 30px;
+    border-bottom: 1px solid #ff5945;
+    }
+.wrapper header.active{
+    cursor: move;
+    user-select: none;
+}
+.wrapper .content{
+    display: flex;
+    padding: 30px 30px 40px 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+}
+
+.content input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 18px;
+    font-weight: 14px;
+    background-color: var(--primary-color-light);
+    border-radius: 10px;
+    transition: var(--tran-05);
+}
+
+.content button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: absolute;
+    margin-left: 258px;
+
+}
+
+.content ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
 }
