@@ -109,6 +109,7 @@ body.dark{
 .sidebar header .logo-text{
     display: flex;
     flex-direction: column;
+ 
 }
 header .image-text .name {
     margin-top: 5px;
@@ -237,6 +238,8 @@ body.dark .mode .sun-moon i.sun{
 body.dark .mode .sun-moon i.moon{
     opacity: 0;
 }
+
+
 
 .menu-bar .bottom-content .toggle-switch{
     position: absolute;
@@ -370,4 +373,12 @@ body.dark .home .text{
     user-select: none;
     cursor: pointer;
     position: relative;
+}
+
+input, select, textarea{
+    color: var(--text-color);
+}
+
+textarea:focus, input:focus {
+    color: var(--text-color);
 }
