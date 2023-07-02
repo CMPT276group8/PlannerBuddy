@@ -8,10 +8,17 @@
 		<version>3.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+<<<<<<< HEAD
 	<groupId>com.example</groupId>
 	<artifactId>plannerbuddy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>plannerbuddy</name>
+=======
+	<groupId>taskverse</groupId>
+	<artifactId>taskverse</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>taskverse</name>
+>>>>>>> 7ebfb682583b5d6381e13a350ee6c45cf55b06c4
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -19,16 +26,31 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
+=======
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+>>>>>>> 7ebfb682583b5d6381e13a350ee6c45cf55b06c4
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
+=======
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+>>>>>>> 7ebfb682583b5d6381e13a350ee6c45cf55b06c4
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+<<<<<<< HEAD
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -48,6 +70,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
+=======
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+>>>>>>> 7ebfb682583b5d6381e13a350ee6c45cf55b06c4
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -56,12 +90,17 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
+=======
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+>>>>>>> 7ebfb682583b5d6381e13a350ee6c45cf55b06c4
 		</dependency>
 	</dependencies>
 
