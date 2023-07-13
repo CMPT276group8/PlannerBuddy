@@ -20,7 +20,7 @@ public class UsersService {
             return null;
         }else{
             if(usersRepository.findFirstByUsername(username).isPresent()){
-                System.out.println("Duplicate username");
+                //username duplicate
                 return null;
             }
             UsersModel usersModel = new UsersModel();

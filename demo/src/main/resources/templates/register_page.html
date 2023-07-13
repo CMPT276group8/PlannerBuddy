@@ -14,6 +14,11 @@
 			</div>
 			<div class="center-register-content">
 				<h1>Hello Buddy!</h1>
+				<!--display error for username duplicates-->
+				<div class="alert" th:if="${error2}" role="alert">
+					<span class="closebtn" onclick="closeAlert()">&times;</span>
+					<p th:text="${error2}"></p>
+				</div>
 				<div class="form">
 					<form method="post" action="/register" th:object="${registerRequest}">
 						<div class="txt_field">
@@ -42,8 +47,10 @@
 			</div>
 		</div>
 		</div>
+		<script src="/js./script.js"></script>
 	</body>
 </html>
+
 <script>
     var password = document.querySelector("[name='password']"),
         confirm_password = document.querySelector("[name='confirm_password']");

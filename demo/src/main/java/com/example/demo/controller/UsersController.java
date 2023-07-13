@@ -38,10 +38,19 @@ public class UsersController {
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute UsersModel usersModel) {
+    public String register(@ModelAttribute("registerRequest") UsersModel usersModel, BindingResult bindingResult, Model model) {
 
         UsersModel registeredUser = usersService.registerUser(usersModel.getUsername(), usersModel.getPassword());
-        return registeredUser == null ? "register_page" : "redirect:/login";
+
+        if (registeredUser == null){
+
+            model.addAttribute("error2", "Username duplicate detected");
+            return "register_page";
+        }
+        else{
+            return "redirect:/login";
+        }
+        //return registeredUser == null ? "register_page" : "redirect:/login";
     }
 
     @PostMapping("/login")
