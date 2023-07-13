@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PlannerBuddy</title>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+	<body>
+		<div class="center-register">
+			<div class="companyname-register">
+				<h1>PlannerBuddy</h1>
+			</div>
+			<div class="center-register-content">
+				<h1>Hello Buddy!</h1>
+				<div class="form">
+					<form method="post" action="/register" th:object="${registerRequest}">
+						<div class="txt_field">
+							<input type="text" name="username" required />
+							<span></span>
+							<label>Username</label>
+						</div>
+						<div class="txt_field">
+							<input type="password" name="password" required />
+							<span></span>
+							<label>Password</label>
+						</div>
+						<div class="txt_field">
+							<input type="password" name="confirm_password" required />
+							<span></span>
+							<label>Confirm Password</label>
+						</div>
+						<div class="register-btn">
+							<input type="submit" name="sign-in" value="Register" />
+						</div>
+						<div class="signup_link">
+							Already a member? <a href="/login">Login Here!</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
+<script>
+    var password = document.querySelector("[name='password']"),
+        confirm_password = document.querySelector("[name='confirm_password']");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity("");
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
