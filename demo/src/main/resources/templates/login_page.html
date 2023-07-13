@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <div class="center">
+        <h1>Welcome Back!</h1>
+        <div class="alert" th:if="${error}" role="alert">
+            <span class="closebtn" onclick="closeAlert()">&times;</span>
+            <p th:text="${error}"></p>
+        </div>
+        <form method="post" action="/login" th:object="${loginRequest}">
+            <div class="txt_field">
+                <input type="text" name="username" required />
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" required />
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="login-btn">
+                <input type="submit" name="sign-in" value="Login" />
+            </div>
+            <div class="signup_link">
+                Not a member? <a href="/register">Register Here!</a>
+            </div>
+        </form>
+    </div>
+    <script src="/js./script.js"></script>
+</body>
+</html>
