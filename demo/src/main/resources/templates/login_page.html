@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,3 +36,42 @@
     <script src="/js./script.js"></script>
 </body>
 </html>
+=======
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PlannerBuddy</title>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+	<body>
+		<div class="center-register">
+			<div class="companyname-register">
+				<h1>PlannerBuddy</h1>
+			</div>
+			<div class="center">
+				<h1>Welcome Back!</h1>
+				<form method="post" action="/login" th:object="${loginRequest}">
+					<div class="txt_field">
+						<input type="text" name="username" required />
+						<span></span>
+						<label>Username</label>
+					</div>
+					<div class="txt_field">
+						<input type="password" name="password" required />
+						<span></span>
+						<label>Password</label>
+					</div>
+					<div class="login-btn">
+						<input type="submit" name="sign-in" value="Login" />
+					</div>
+					<div class="signup_link">
+						Not a member? <a href="/register">Register Here!</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+>>>>>>> d2b8ecd525f0925e5a07fb3fd664524d71fd6326
