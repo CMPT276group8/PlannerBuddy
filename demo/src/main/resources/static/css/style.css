@@ -218,7 +218,6 @@ input[type="submit"]:hover {
 		background-position: 100% 50%;
 	}
 }
-<<<<<<< HEAD
 
 .alert {
 	position: relative;
@@ -282,5 +281,3 @@ input[type="submit"]:hover {
   .alert.error .closebtn {
 	color: #721c24;
   }
-=======
->>>>>>> d2b8ecd525f0925e5a07fb3fd664524d71fd6326

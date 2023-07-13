@@ -183,7 +183,6 @@ taskInput.addEventListener("keyup", e => {
         localStorage.setItem("todo-list", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
     }
-<<<<<<< HEAD
 });
 
    // Function to close the alert
@@ -191,6 +190,3 @@ taskInput.addEventListener("keyup", e => {
     var alert = document.querySelector('.alert');
     alert.style.display = 'none';
 }
-=======
-});
->>>>>>> d2b8ecd525f0925e5a07fb3fd664524d71fd6326
