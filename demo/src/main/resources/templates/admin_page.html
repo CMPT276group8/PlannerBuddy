@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/admin.css"/>
+    <title>Admin Page</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="users : ${us}">
+        <td><span th:text="${users.username}"></span></td>
+        <td><span th:text="${users.password}"></span></td>
+        <td> <button class="kill" th:onclick="'deleteSomething('+${users.id}+')'">DELETE!</button></td>
+    </tr>
+</table>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -2,22 +2,32 @@ package com.example.demo.model;
 
 import java.util.Objects;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users_table")
+@Table(name = "users")
 public class UsersModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "id")
     Integer id;
+
+    @Column(name = "username")
     String username;
+
+    @Column(name = "password")
     String password;
+
+    @Column(name = "role")
+    String role; 
     
+
     String passwordConfirm;
+
+    public UsersModel(){
+
+    }
 
     public Integer getId(){
         return id;
@@ -81,6 +91,14 @@ public class UsersModel {
         return "UsersModel{" + "id"+ id +
                             ", username='" + username + '\''+
                             '}';
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
 

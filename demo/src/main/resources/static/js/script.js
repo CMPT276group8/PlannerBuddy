@@ -190,3 +190,12 @@ taskInput.addEventListener("keyup", e => {
     var alert = document.querySelector('.alert');
     alert.style.display = 'none';
 }
+
+function deleteSomething(id) {
+  fetch('/users/delete/' + id,  {
+    method: 'DELETE'
+  })
+  .then(() => {
+    window.location.reload();
+})
+}
