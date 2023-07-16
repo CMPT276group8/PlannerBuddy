@@ -117,14 +117,13 @@ header .image-text .name {
     font-size: 20px;
     font-weight: 600;
     margin-left: 2px;
-    cursor: pointer;
+    cursor: default;
 }
 
 .sidebar header .image{
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 
 .sidebar header .image img{
@@ -160,7 +159,7 @@ body.dark .sidebar header .toggle{
 }
 
 .sidebar .menu{
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .sidebar li.search-box{
@@ -417,6 +416,10 @@ ul li.checked {
   ul li.checked .task-text {
     text-decoration: line-through;
   }
+
+  ul li .task-text:hover {
+    cursor: default;
+  }
   
   ul li.checked .delete-button {
     text-decoration: none;
@@ -430,7 +433,7 @@ ul li.checked::before{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start; 
-    max-width: 525px; 
+    max-width: 820px;
   }
   
   .task-text {

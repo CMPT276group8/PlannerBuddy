@@ -1,11 +1,9 @@
 const body = document.querySelector('body');
 const sidebar = body.querySelector('nav');
 const toggle = body.querySelector('.toggle');
-const searchBtn = body.querySelector('.search-box');
 const modeSwitch = body.querySelector('.toggle-switch');
 const modeText = body.querySelector('.mode-text');
 const logo = body.querySelector('#logo');
-const taskListLink = body.querySelector('#taskListLink');
 
 const closeNavbar = () => {
   sidebar.classList.add('close');
@@ -15,7 +13,7 @@ const expandNavbar = () => {
   sidebar.classList.remove('close');
 };
 
-searchBtn.addEventListener('click', expandNavbar);
+
 modeSwitch.addEventListener('click', () => {
   body.classList.toggle('dark');
   const isDarkModeEnabled = body.classList.contains('dark');
@@ -38,26 +36,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
-const wrapper = document.querySelector('.wrapper');
-const header = wrapper.querySelector('header');
 
-function onDrag({ movementX, movementY }) {
-  let getStyle = window.getComputedStyle(wrapper);
-  let leftVal = parseInt(getStyle.left);
-  let topVal = parseInt(getStyle.top);
-  wrapper.style.left = `${leftVal + movementX}px`;
-  wrapper.style.top = `${topVal + movementY}px`;
-}
-
-header.addEventListener('mousedown', () => {
-  header.classList.add('active');
-  header.addEventListener('mousemove', onDrag);
-});
-
-document.addEventListener('mouseup', () => {
-  header.classList.remove('active');
-  header.removeEventListener('mousemove', onDrag);
-});
 function applyTheme(isDarkMode) {
   if (isDarkMode) {
     body.classList.add('dark');
@@ -129,13 +108,20 @@ function addTaskToList(listNumber) {
   // Create a span for task text
   let taskText = document.createElement("span");
   let taskInput = prompt("Enter a task:");
-  
+
   // Check if the task input is empty
   if (taskInput.trim() === "") {
     alert("Please enter a task.");
     return; // Exit the function if the task input is empty
   }
-  
+
+  // Check if the task input exceeds the maximum character limit (e.g., 50 characters)
+  const maxCharacterLimit = 75;
+  if (taskInput.length > maxCharacterLimit) {
+    alert("Task input exceeds the maximum character limit of " + maxCharacterLimit + " characters.");
+    return; // Exit the function if the task input exceeds the character limit
+  }
+
   taskText.innerHTML = taskInput;
   taskText.className = "task-text";
   taskContainer.appendChild(taskText);
