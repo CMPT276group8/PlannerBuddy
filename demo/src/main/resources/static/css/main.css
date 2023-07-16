@@ -374,6 +374,7 @@ body.dark .home .text{
     color: #fff; 
     font-size: 20px; 
     border: none;
+    margin-left: 25px;
   }
 
   .title-content button:hover {
@@ -455,3 +456,4 @@ ul li.checked::before{
     font-size: 14px;
     padding: 5px 75px;
   }
+

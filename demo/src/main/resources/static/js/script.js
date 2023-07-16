@@ -73,27 +73,62 @@ function deleteSomething(id) {
 })
 }
 
-// Tasklist
-const listContainer1 = document.getElementById("list-container-1");
 const addButton1 = document.getElementById("addButton-1");
+const taskInput1 = document.getElementById("taskInput-1");
 
-addButton1.addEventListener("click", function() {
+addButton1.addEventListener("click", function () {
   addTaskToList(1);
 });
 
-const listContainer2 = document.getElementById("list-container-2");
-const addButton2 = document.getElementById("addButton-2");
+taskInput1.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addTaskToList(1);
+  }
+});
 
-addButton2.addEventListener("click", function() {
+const addButton2 = document.getElementById("addButton-2");
+const taskInput2 = document.getElementById("taskInput-2");
+
+addButton2.addEventListener("click", function () {
   addTaskToList(2);
 });
 
-const listContainer3 = document.getElementById("list-container-3");
-const addButton3 = document.getElementById("addButton-3");
+taskInput2.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addTaskToList(2);
+  }
+});
 
-addButton3.addEventListener("click", function() {
+const addButton3 = document.getElementById("addButton-3");
+const taskInput3 = document.getElementById("taskInput-3");
+
+addButton3.addEventListener("click", function () {
   addTaskToList(3);
 });
+
+taskInput3.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addTaskToList(3);
+  }
+});
+
+// Tasklist Date
+const todayDateElement = document.getElementById("today-date");
+const tomorrowDateElement = document.getElementById("tomorrow-date");
+
+// Get today's date
+const today = new Date();
+const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+const todayFormatted = today.toLocaleDateString("en-US", options);
+
+// Get tomorrow's date
+const tomorrow = new Date(today);
+tomorrow.setDate(today.getDate() + 1);
+const tomorrowFormatted = tomorrow.toLocaleDateString("en-US", options);
+
+// Update the elements with today's and tomorrow's dates
+todayDateElement.textContent = todayFormatted;
+tomorrowDateElement.textContent = tomorrowFormatted;
 
 function addTaskToList(listNumber) {
   const listContainer = document.getElementById("list-container-" + listNumber);
@@ -107,7 +142,15 @@ function addTaskToList(listNumber) {
 
   // Create a span for task text
   let taskText = document.createElement("span");
-  let taskInput = prompt("Enter a task:");
+  let taskInput = "";
+
+  if (listNumber === 1) {
+    taskInput = taskInput1.value;
+  } else if (listNumber === 2) {
+    taskInput = taskInput2.value;
+  } else if (listNumber === 3) {
+    taskInput = taskInput3.value;
+  }
 
   // Check if the task input is empty
   if (taskInput.trim() === "") {
@@ -134,6 +177,15 @@ function addTaskToList(listNumber) {
 
   li.appendChild(taskContainer);
   listContainer.appendChild(li);
+
+  // Clear the task input field
+  if (listNumber === 1) {
+    taskInput1.value = "";
+  } else if (listNumber === 2) {
+    taskInput2.value = "";
+  } else if (listNumber === 3) {
+    taskInput3.value = "";
+  }
 }
 
 function toggleTask(e) {
@@ -143,25 +195,5 @@ function toggleTask(e) {
     e.target.parentElement.parentElement.remove();
   }
 }
-
-// Tasklist Date
-// Tasklist
-const todayDateElement = document.getElementById("today-date");
-const tomorrowDateElement = document.getElementById("tomorrow-date");
-
-// Get today's date
-const today = new Date();
-const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-const todayFormatted = today.toLocaleDateString('en-US', options);
-
-// Get tomorrow's date 
-const tomorrow = new Date(today);
-tomorrow.setDate(today.getDate() + 1);
-const tomorrowFormatted = tomorrow.toLocaleDateString('en-US', options);
-
-// Update the elements with today's and tomorrow's dates
-todayDateElement.textContent = todayFormatted;
-tomorrowDateElement.textContent = tomorrowFormatted;
-
 
 

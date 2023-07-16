@@ -68,45 +68,44 @@
     </nav>
     <div class="wrapper">
         <header>
-            Today's Tasks
-            <div class="title-content">
-              <p id="today-date"></p>
-              <button id="addButton-1">+</button>
-            </div>
-          </header>
-          
-        <div class="content">
-            <ul class="task-list" id="list-container-1">
-            </ul>
-        </div>
-    </div>
-    
-    <div class="wrapper">
-        <header>
-            Tomorrow's Tasks
-            <div class="title-content">
-                <p id="tomorrow-date"></p>
-                <button id="addButton-2">+</button>
-            </div>
+          Today's Tasks
+          <div class="title-content">
+            <p id="today-date"></p>
+            <input type="text" id="taskInput-1" placeholder="Enter a task">
+            <button id="addButton-1">+</button>
+          </div>
         </header>
         <div class="content">
-            <ul class="task-list" id="list-container-2">
-            </ul>
+          <ul class="task-list" id="list-container-1"></ul>
         </div>
-    </div>
-    <div class="wrapper">
+      </div>
+      
+      <div class="wrapper">
         <header>
-            Upcoming Tasks
-            <div class="title-content">
-                <button id="addButton-3">+</button>
-            </div>
+          Tomorrow's Tasks
+          <div class="title-content">
+            <p id="tomorrow-date"></p>
+            <input type="text" id="taskInput-2" placeholder="Enter a task">
+            <button id="addButton-2">+</button>
+          </div>
         </header>
         <div class="content">
-            <ul class="task-list" id="list-container-3">
-            </ul>
+          <ul class="task-list" id="list-container-2"></ul>
         </div>
-    </div>
-
+      </div>
+      
+      <div class="wrapper">
+        <header>
+          Upcoming Tasks
+          <div class="title-content">
+            <input type="text" id="taskInput-3" placeholder="Enter a task">
+            <button id="addButton-3">+</button>
+          </div>
+        </header>
+        <div class="content">
+          <ul class="task-list" id="list-container-3"></ul>
+        </div>
+      </div>
     
     <script src="/js/script.js"></script>
 </body>
