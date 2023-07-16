@@ -154,7 +154,7 @@ const today = new Date();
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 const todayFormatted = today.toLocaleDateString('en-US', options);
 
-// Get tomorrow's date
+// Get tomorrow's date 
 const tomorrow = new Date(today);
 tomorrow.setDate(today.getDate() + 1);
 const tomorrowFormatted = tomorrow.toLocaleDateString('en-US', options);
@@ -162,4 +162,6 @@ const tomorrowFormatted = tomorrow.toLocaleDateString('en-US', options);
 // Update the elements with today's and tomorrow's dates
 todayDateElement.textContent = todayFormatted;
 tomorrowDateElement.textContent = tomorrowFormatted;
+
+
 
