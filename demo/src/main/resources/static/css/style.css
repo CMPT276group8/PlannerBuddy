@@ -29,10 +29,10 @@ body {
 
 .companyname,
 .welcome-title {
-	text-align: center;
+	text-align: left;
 	position: absolute;
-	top: 20%;
-	left: 50%;
+	top: 40%;
+	left: 20%;
 	transform: translate(-50%, -50%);
 	width: 400px;
 	color: white;
@@ -48,24 +48,57 @@ body {
 }
 
 .welcome-sub {
-	text-align: center;
+	text-align: left;
 	position: absolute;
-	top: 34%;
-	left: 50%;
+	top: 53%;
+	left: 20%;
 	transform: translate(-50%, -50%);
 	width: 400px;
 	color: white;
-	font-size: x-large;
+	font-size: 30px;
 }
 
+.todo-pic::before{
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.2); 
+	z-index: -1;
+
+}
+.todo-pic img{
+	float: right;
+	width: 50%;
+	height: auto;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 0; 
+	
+}
+.todo-pic .explanation {
+	position: absolute;
+	bottom:0;
+	right: 0;
+	padding: 20px;
+	color: #ffffff;
+	width: 50%;
+	z-index:1;
+  }
+
+
 .start-btn {
+	clear:both;
 	position: absolute;
 	padding: 20px;
-	top: 50%;
-	left: 50%;
+	top: 65%;
+	left: 13%;
 	transform: translate(-50%, -50%);
 	width: 150px;
-	background: white;
+	background: #eeeeee;
 	border-radius: 10px;
 	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
 	display: flex;
