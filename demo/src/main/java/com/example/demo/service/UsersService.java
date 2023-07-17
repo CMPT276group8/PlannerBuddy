@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.UsersModel;
 import com.example.demo.repository.UsersRepository;
-
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.context.SecurityContextHolder;
 @Service
 public class UsersService {
     
@@ -45,7 +46,7 @@ public class UsersService {
 
 
     public UsersModel adminAuthenticate(String role){
-        List<UsersModel> users = usersRepository.findByRole(role);
+    List<UsersModel> users = usersRepository.findByRole(role);
     for (UsersModel user : users) {
         if (user.getRole().equalsIgnoreCase("admin")) {
             return user;
@@ -53,5 +54,7 @@ public class UsersService {
     }
     return null;
     }
+
+    
 }
 

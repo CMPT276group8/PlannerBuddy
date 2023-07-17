@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+//import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.*;
@@ -24,6 +26,10 @@ public class UsersModel {
     
 
     String passwordConfirm;
+
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    private List<Todo> todos;
+
 
     public UsersModel(){
 
@@ -100,6 +106,16 @@ public class UsersModel {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<Todo> todos) {
+        this.todos = todos;
+    }
+
+    
 
 
 }

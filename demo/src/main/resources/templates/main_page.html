@@ -66,46 +66,75 @@
         </div>
 
     </nav>
+    <div class="welcome-username" style="margin-left: 280px; margin-bottom: -25px; margin-top: 20px; color: var(--text-color); font-size: 24px;">
+      <form th:action="@{'/login/' + ${us.id}}" method="post">
+        <h1>Welcome <span th:text="${us.username}"></span>!</h1>
+      </form>
+    </div>
+    
     <div class="wrapper">
-        <header>
+      <header>
+          
           Today's Tasks
           <div class="title-content">
-            <p id="today-date"></p>
-            <input type="text" id="taskInput-1" placeholder="Enter a task">
-            <button id="addButton-1">+</button>
+              <p id="today-date"></p>
+              <form method="post" th:action="@{/users/add(id=${us.id})}">
+                  <input type="text" name="activity" placeholder="Enter a task...">
+                  <button type="submit">+</button>
+          
+              </form>
           </div>
-        </header>
-        <div class="content">
-          <ul class="task-list" id="list-container-1"></ul>
-        </div>
+      </header>
+      <div class="content">
+          <ul class="task-list" id="list-container-1">
+              <ul>
+                  <li th:each="todo : ${todos}" th:text="${todo.activity}"></li>
+              </ul>
+          </ul>
       </div>
-      
-      <div class="wrapper">
-        <header>
+  </div>
+  
+  <div class="wrapper">
+      <header>
           Tomorrow's Tasks
           <div class="title-content">
-            <p id="tomorrow-date"></p>
-            <input type="text" id="taskInput-2" placeholder="Enter a task">
-            <button id="addButton-2">+</button>
+              <p id="tomorrow-date"></p>
+              <form method="post" th:action="@{/users/add2(id=${us.id})}">
+                  <input type="text" name="activity2" placeholder="Enter a task...">
+                  <button type="submit">+</button>
+          
+              </form>
+              
           </div>
-        </header>
-        <div class="content">
-          <ul class="task-list" id="list-container-2"></ul>
-        </div>
+      </header>
+      <div class="content">
+          <ul class="task-list" id="list-container-2">
+              <ul>
+                  <li th:each="todo : ${todos}" th:text="${todo.activity2}"></li>
+              </ul>
+          </ul>
       </div>
-      
-      <div class="wrapper">
-        <header>
+  </div>
+  <div class="wrapper">
+      <header>
           Upcoming Tasks
           <div class="title-content">
-            <input type="text" id="taskInput-3" placeholder="Enter a task">
-            <button id="addButton-3">+</button>
+              <form method="post" th:action="@{/users/add3(id=${us.id})}">
+                  <input type="text" name="activity3" placeholder="Enter a task...">
+                  <button type="submit">+</button>
+          
+              </form>
+              
           </div>
-        </header>
-        <div class="content">
-          <ul class="task-list" id="list-container-3"></ul>
-        </div>
+      </header>
+      <div class="content">
+          <ul class="task-list" id="list-container-3">
+              <ul>
+                  <li th:each="todo : ${todos}" th:text="${todo.activity3}"></li>
+              </ul>
+          </ul>
       </div>
+  </div>
     
     <script src="/js/script.js"></script>
 </body>
