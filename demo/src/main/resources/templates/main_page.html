@@ -88,7 +88,11 @@
       <div class="content">
           <ul class="task-list" id="list-container-1">
               <ul>
-                  <li th:each="todo : ${todos}" th:text="${todo.activity}"></li>
+                <li th:each="todo : ${todos}" data-uid="${todo.uid}">
+                    <span th:if="${todo.activity != null and todo.activity.trim() != ''}" th:text="${todo.activity}"></span>
+                    <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'">X</button>
+                </li>
+                  
               </ul>
           </ul>
       </div>
@@ -109,9 +113,12 @@
       </header>
       <div class="content">
           <ul class="task-list" id="list-container-2">
-              <ul>
-                  <li th:each="todo : ${todos}" th:text="${todo.activity2}"></li>
-              </ul>
+              
+            <li th:each="todo : ${todos}" data-uid="${todo.uid}">
+                <span th:if="${todo.activity2 != null and todo.activity2.trim() != ''}" th:text="${todo.activity2}"></span>
+                <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'">X</button>
+            </li>
+              
           </ul>
       </div>
   </div>
@@ -129,9 +136,12 @@
       </header>
       <div class="content">
           <ul class="task-list" id="list-container-3">
-              <ul>
-                  <li th:each="todo : ${todos}" th:text="${todo.activity3}"></li>
-              </ul>
+              
+            <li th:each="todo : ${todos}" data-uid="${todo.uid}">
+                <span th:if="${todo.activity3 != null and todo.activity3.trim() != ''}" th:text="${todo.activity3}"></span>
+                <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'">X</button>
+            </li>
+              
           </ul>
       </div>
   </div>

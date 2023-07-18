@@ -12,25 +12,7 @@ import com.example.demo.repository.UsersRepository;
 import com.example.demo.model.Todo;
 import com.example.demo.model.UsersModel;
 
-/**
-public class TodoService {
-    
 
-    
-    private TodoRepository todoRepository;
-    //private UsersRepository usersRepository;
-
-    public Todo todoList( String activity){
-        
-            Todo todo = new Todo(activity);
-            
-            todo.setActivity(activity);
-            
-            return todoRepository.save(todo);
-        }
-    
-
-}**/
 
 @Service
 public class TodoService {

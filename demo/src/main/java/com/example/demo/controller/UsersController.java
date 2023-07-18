@@ -69,27 +69,6 @@ public class UsersController {
         //return registeredUser == null ? "register_page" : "redirect:/login";
     }
 
-    /**@PostMapping("/login")
-    public String login(@ModelAttribute("loginRequest") UsersModel usersModel, BindingResult bindingResult, Model model) {
-        UsersModel authenticated = usersService.authenticate(usersModel.getUsername(), usersModel.getPassword());
-        if (authenticated != null) {
-            if (authenticated.getRole().equalsIgnoreCase("admin")) {
-                // Admin user authenticated, go to admin page
-                List<UsersModel> users = usersRepository.findAll();
-            // end of database call
-                model.addAttribute("us", users);
-                return "admin_page";}
-            // Successful login, perform the desired action
-             else{return "main_page";
-            }
-        } else {
-            // Login failed, display an error message
-            model.addAttribute("error", "Invalid username or password");
-            return "login_page";
-        }
-    }**/
-
-
     @PostMapping("/login")
 public String login(
     @ModelAttribute("loginRequest") UsersModel usersModel,

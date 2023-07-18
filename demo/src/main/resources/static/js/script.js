@@ -175,3 +175,12 @@ function toggleTask(e) {
     e.target.parentElement.parentElement.remove();
   }
 }
+
+function deleteTodo(uid) {
+  fetch('/todo/delete/' + uid, {
+    method: 'DELETE'
+  })
+    .then(() => {
+      window.location.reload();
+    });
+}

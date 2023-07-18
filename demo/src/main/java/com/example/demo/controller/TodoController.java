@@ -83,45 +83,16 @@ public class TodoController {
     }
     }
 
+    @DeleteMapping("/todo/delete/{uid}")
+    public String deleteById(@PathVariable("uid") int uid) {
+        //System.out.println(uid);
+        todoRepository.deleteById(uid); //delete user by id
+        
+        return "main_page";
+    }
+
+
 
 }  
 
 
-/** 
-package com.example.demo.controller;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.example.demo.model.Todo;
-import com.example.demo.repository.TodoRepository;
-
-import java.util.List;
-
-@Controller
-public class TodoController {
-
-    @Autowired
-    private TodoRepository todoRepo;
-
-    @PostMapping("/users/add")
-    public String addUser(@RequestParam("activity") String activity) {
-        Todo todo = new Todo();
-        todo.setActivity(activity);
-        todoRepo.save(todo);
-        return "redirect:/td1";
-    }
-
-    @GetMapping("/td1")
-    public String showTodo(Model model) {
-    List<Todo> todos = todoRepo.findAll();
-    model.addAttribute("todos", todos);
-    return "main_page";
-}
-
-}**/
