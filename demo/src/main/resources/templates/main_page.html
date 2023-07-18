@@ -72,80 +72,68 @@
       </form>
     </div>
     
-    <div class="wrapper">
-      <header>
-          
-          Today's Tasks
-          <div class="title-content">
-              <p id="today-date"></p>
-              <form method="post" th:action="@{/users/add(id=${us.id})}">
-                  <input type="text" name="activity" placeholder="Enter a task...">
-                  <button type="submit">+</button>
-          
-              </form>
-          </div>
-      </header>
-      <div class="content">
-          <ul class="task-list" id="list-container-1">
-              <ul>
-                <li th:each="todo : ${todos}" data-uid="${todo.uid}">
-                    <span th:if="${todo.activity != null and todo.activity.trim() != ''}" th:text="${todo.activity}"></span>
-                    <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'">X</button>
-                </li>
-                  
-              </ul>
-          </ul>
-      </div>
+<div class="wrapper">
+  <header>
+    Today's Tasks
+    <div class="title-content">
+      <p id="today-date"></p>
+      <form method="post" th:action="@{/users/add(id=${us.id})}">
+        <input type="text" name="activity" placeholder="Enter a task...">
+        <button type="submit">+</button>
+      </form>
+    </div>
+  </header>
+  <div class="content">
+    <ul class="task-list" id="list-container-1">
+      <li th:each="todo : ${todos}" data-uid="${todo.uid}">
+        <span th:if="${todo.activity != null and todo.activity.trim() != ''}" th:text="${todo.activity}"></span>
+        <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'"><img src="/img/redcross.png" alt="Delete"></button>
+      </li>
+    </ul>
   </div>
-  
-  <div class="wrapper">
-      <header>
-          Tomorrow's Tasks
-          <div class="title-content">
-              <p id="tomorrow-date"></p>
-              <form method="post" th:action="@{/users/add2(id=${us.id})}">
-                  <input type="text" name="activity2" placeholder="Enter a task...">
-                  <button type="submit">+</button>
-          
-              </form>
-              
-          </div>
-      </header>
-      <div class="content">
-          <ul class="task-list" id="list-container-2">
-              
-            <li th:each="todo : ${todos}" data-uid="${todo.uid}">
-                <span th:if="${todo.activity2 != null and todo.activity2.trim() != ''}" th:text="${todo.activity2}"></span>
-                <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'">X</button>
-            </li>
-              
-          </ul>
-      </div>
+</div>
+
+<div class="wrapper">
+  <header>
+    Tomorrow's Tasks
+    <div class="title-content">
+      <p id="tomorrow-date"></p>
+      <form method="post" th:action="@{/users/add2(id=${us.id})}">
+        <input type="text" name="activity2" placeholder="Enter a task...">
+        <button type="submit">+</button>
+      </form>
+    </div>
+  </header>
+  <div class="content">
+    <ul class="task-list" id="list-container-2">
+      <li th:each="todo : ${todos}" data-uid="${todo.uid}">
+        <span th:if="${todo.activity2 != null and todo.activity2.trim() != ''}" th:text="${todo.activity2}"></span>
+        <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'"><img src="/img/redcross.png" alt="Delete"></button>
+      </li>
+    </ul>
   </div>
-  <div class="wrapper">
-      <header>
-          Upcoming Tasks
-          <div class="title-content">
-              <form method="post" th:action="@{/users/add3(id=${us.id})}">
-                  <input type="text" name="activity3" placeholder="Enter a task...">
-                  <button type="submit">+</button>
-          
-              </form>
-              
-          </div>
-      </header>
-      <div class="content">
-          <ul class="task-list" id="list-container-3">
-              
-            <li th:each="todo : ${todos}" data-uid="${todo.uid}">
-                <span th:if="${todo.activity3 != null and todo.activity3.trim() != ''}" th:text="${todo.activity3}"></span>
-                <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'">X</button>
-            </li>
-              
-          </ul>
-      </div>
+</div>
+
+<div class="wrapper">
+  <header>
+    Upcoming Tasks
+    <div class="title-content">
+      <form method="post" th:action="@{/users/add3(id=${us.id})}">
+        <input type="text" name="activity3" placeholder="Enter a task...">
+        <button type="submit">+</button>
+      </form>
+    </div>
+  </header>
+  <div class="content">
+    <ul class="task-list" id="list-container-3">
+      <li th:each="todo : ${todos}" data-uid="${todo.uid}">
+        <span th:if="${todo.activity3 != null and todo.activity3.trim() != ''}" th:text="${todo.activity3}"></span>
+        <button class="delete-button" th:onclick="'deleteTodo('+${todo.uid}+')'"><img src="/img/redcross.png" alt="Delete"></button>
+      </li>
+    </ul>
   </div>
-    
+</div>
+
     <script src="/js/script.js"></script>
 </body>
 </html>

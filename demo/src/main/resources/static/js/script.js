@@ -71,40 +71,6 @@ function deleteSomething(id) {
     });
 }
 
-const addButton1 = document.getElementById('addButton-1');
-const addButton2 = document.getElementById('addButton-2');
-const addButton3 = document.getElementById('addButton-3');
-const taskInputs = document.getElementsByName('activity');
-
-addButton1.addEventListener('click', function () {
-  addTaskToList(1, taskInputs[0]);
-});
-
-taskInputs[0].addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
-    addTaskToList(1, taskInputs[0]);
-  }
-});
-
-addButton2.addEventListener('click', function () {
-  addTaskToList(2, taskInputs[1]);
-});
-
-taskInputs[1].addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
-    addTaskToList(2, taskInputs[1]);
-  }
-});
-
-addButton3.addEventListener('click', function () {
-  addTaskToList(3, taskInputs[2]);
-});
-
-taskInputs[2].addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
-    addTaskToList(3, taskInputs[2]);
-  }
-});
 
 // Tasklist Date
 const todayDateElement = document.getElementById('today-date');
@@ -184,3 +150,4 @@ function deleteTodo(uid) {
       window.location.reload();
     });
 }
+

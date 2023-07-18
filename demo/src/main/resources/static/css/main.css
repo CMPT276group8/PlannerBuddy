@@ -444,12 +444,21 @@ ul li.checked::before{
     flex-grow: 1;
   }
   
-  .delete-button {
-    width: auto;
-    height: auto;
+/* Remove the default button styles */
+.delete-button {
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    color: #ff5945;
+    padding: 0;
   }
+  
+  /* Adjust the size and appearance of the image */
+  .delete-button img {
+    width: 11px;
+    height: 11px;
+    margin-left: 5px;
+  }
+  
 
   #today-date,
   #tomorrow-date {
