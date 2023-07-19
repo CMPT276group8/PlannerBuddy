@@ -75,5 +75,17 @@ public class UsersRepositoryTest {
         assertNotEquals(savedUser, null);
         assertEquals(savedUser.getId(), 1);
     }
+    @Test
+    void testFindByRole() {
+        UsersModel user = new UsersModel();
+        user.setUsername("User");
+        user.setPassword("123");
+        user.setRole("regular");
+        entityManager.persist(user);
+        entityManager.flush();
 
+        List<UsersModel> found = userRepo.findByRole("regular");
+
+        assertEquals(found.get(0).getRole(), user.getRole());
+    }
 }
