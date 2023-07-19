@@ -69,12 +69,14 @@ public class UsersModel {
         this.username = username;
     }
 
-    private void checkPassword() {
-    if(this.password == null || this.passwordConfirm == null){
-        return;
-    }else if(!this.password.equals(passwordConfirm)){
-        this.passwordConfirm = null;
-    }
+    public boolean checkPassword() {
+        if(this.password == null || this.passwordConfirm == null){
+            return false;
+        }
+        else if(this.password == this.passwordConfirm){
+            return true;
+        }
+        return false;
     }
 
     @Override
