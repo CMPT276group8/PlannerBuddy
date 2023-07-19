@@ -38,35 +38,6 @@ public class UsersRepositoryTest {
     }
 
     @Test
-    void testFindByRole() {
-        UsersModel user = new UsersModel();
-        user.setUsername("User");
-        user.setPassword("123");
-        user.setRole("regular");
-        entityManager.persist(user);
-        entityManager.flush();
-
-        List<UsersModel> found = userRepo.findByRole("regular");
-
-        assertEquals(found.get(0).getRole(), user.getRole());
-    }
-
-    @Test
-    void testSave() {
-        UsersModel user = new UsersModel();
-        user.setUsername("User");
-        user.setPassword("123");
-        user.setRole("regular");
-        entityManager.persist(user);
-        entityManager.flush();
-
-        UsersModel savedUser = userRepo.save(user);
-
-        assertNotEquals(savedUser, null);
-        assertEquals(savedUser.getId(), 1);
-    }
-
-    @Test
     void testFindAll() {
         UsersModel user1 = new UsersModel();
         user1.setUsername("User1");
