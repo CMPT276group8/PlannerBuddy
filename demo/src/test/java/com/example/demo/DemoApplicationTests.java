@@ -13,7 +13,7 @@ class DemoApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
+	
 	//test for checkPassword() function
 	@Test
 	void checkPassowrdTest() {
@@ -22,4 +22,5 @@ class DemoApplicationTests {
 		user.setPasswordConfirm("123");
 		assertEquals(true, user.checkPassword());
 	}
+
 }

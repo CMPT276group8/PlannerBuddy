@@ -116,9 +116,5 @@ public class UsersModel {
     public void setTodos(List<Todo> todos) {
         this.todos = todos;
     }
-
-    
-
-
 }
 

@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.example.demo.model.UsersModel;
 
 public interface UsersRepository extends JpaRepository<UsersModel, Integer>{
-
+    
     Optional<UsersModel> findByUsernameAndPassword(String username, String password);
     List<UsersModel>findByRole(String role);
 
