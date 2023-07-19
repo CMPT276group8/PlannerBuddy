@@ -61,4 +61,19 @@ public class UsersRepositoryTest {
         assertNotEquals(userList, null);
         assertEquals(userList.size(), 2);
     }
+    @Test
+    void testSave() {
+        UsersModel user = new UsersModel();
+        user.setUsername("User");
+        user.setPassword("123");
+        user.setRole("regular");
+        entityManager.persist(user);
+        entityManager.flush();
+
+        UsersModel savedUser = userRepo.save(user);
+
+        assertNotEquals(savedUser, null);
+        assertEquals(savedUser.getId(), 1);
+    }
+
 }
