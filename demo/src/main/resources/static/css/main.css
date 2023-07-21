@@ -413,6 +413,10 @@ ul li {
 	clip-path: circle(50% at 50% 50%);
 	background-color: blue;
 }
+
+.checkbox-task:checked + label.strikethrough {
+	text-decoration: line-through;
+}
 /* ul li::before {
 	content: "";
 	position: absolute;

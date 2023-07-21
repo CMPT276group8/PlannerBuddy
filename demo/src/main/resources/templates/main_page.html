@@ -104,11 +104,11 @@
 					>
 						<div>
 							<input type="checkbox" class="checkbox-task" />
-							<label for="checkbox"></label>
-							<span
+							<label
 								th:if="${todo.activity != null and todo.activity.trim() != ''}"
 								th:text="${todo.activity}"
-							></span>
+								class="strikethrough"
+							></label>
 							<button
 								class="delete-button"
 								th:onclick="'deleteTodo('+${todo.uid}+')'"
@@ -145,11 +145,11 @@
 					>
 						<div>
 							<input type="checkbox" class="checkbox-task" />
-							<label for="checkbox"></label>
-							<span
+							<label
 								th:if="${todo.activity2 != null and todo.activity2.trim() != ''}"
 								th:text="${todo.activity2}"
-							></span>
+								class="strikethrough"
+							></label>
 							<button
 								class="delete-button"
 								th:onclick="'deleteTodo('+${todo.uid}+')'"
@@ -185,11 +185,11 @@
 					>
 						<div>
 							<input type="checkbox" class="checkbox-task" />
-							<label for="checkbox"></label>
-							<span
+							<label
 								th:if="${todo.activity3 != null and todo.activity3.trim() != ''}"
 								th:text="${todo.activity3}"
-							></span>
+								class="strikethrough"
+							></label>
 							<button
 								class="delete-button"
 								th:onclick="'deleteTodo('+${todo.uid}+')'"
