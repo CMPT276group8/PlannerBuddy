@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -126,13 +127,43 @@ public String login(
     if (userOptional.isPresent()) {
         UsersModel user = userOptional.get();
         List<Todo> todos = todoRepository.findByUsers(user);
+        List<Todo> todos1 = new ArrayList<Todo>();
+        List<Todo> todos2 = new ArrayList<Todo>();
+        List<Todo> todos3 = new ArrayList<Todo>();
+        //todos1
+        for (int i = 0; i < todos.size(); i++) {
+            // System.out.println(todos.get(i));
+            // System.out.println(todos.get(i).getActivity());
+            if (todos.get(i).getActivity() != null) {
+                todos1.add(todos.get(i));
+            }
+        }
+
+        //todos2
+        for (int i = 0; i < todos.size(); i++) {
+            if (todos.get(i).getActivity2() != null) {
+                todos2.add(todos.get(i));
+            }
+        }
+
+        //todos3
+        for (int i = 0; i < todos.size(); i++) {
+            if (todos.get(i).getActivity3() != null) {
+                todos3.add(todos.get(i));
+            }
+        }
+
         model.addAttribute("us", user);
         model.addAttribute("todos", todos);
+        model.addAttribute("todos1", todos1);
+        model.addAttribute("todos2", todos2);
+        model.addAttribute("todos3", todos3);
         return "main_page";
-    } else {
+    } 
+    else {
         return "redirect:/error";
     }
-}
+    }
 
     @GetMapping("/main")
     public String mainPage(Model model) {

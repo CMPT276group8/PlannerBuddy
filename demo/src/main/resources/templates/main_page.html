@@ -98,20 +98,20 @@
 			<div class="content">
 				<ul class="task-list" id="list-container-1">
 					<li
-						th:each="todo : ${todos}"
-						data-uid="${todo.uid}"
+						th:each="todo1 : ${todos1}"
+						data-uid="${todo1.uid}"
 						class="task-wrapper"
 					>
 						<div>
 							<input type="checkbox" class="checkbox-task" />
 							<label
-								th:if="${todo.activity != null and todo.activity.trim() != ''}"
-								th:text="${todo.activity}"
+								th:if="${todo1.activity != null and todo1.activity.trim() != ''}"
+								th:text="${todo1.activity}"
 								class="strikethrough"
 							></label>
 							<button
 								class="delete-button"
-								th:onclick="'deleteTodo('+${todo.uid}+')'"
+								th:onclick="'deleteTodo('+${todo1.uid}+')'"
 							>
 								<img src="/img/redcross.png" alt="Delete" />
 							</button>
@@ -139,20 +139,20 @@
 			<div class="content">
 				<ul class="task-list" id="list-container-2">
 					<li
-						th:each="todo : ${todos}"
-						data-uid="${todo.uid}"
+						th:each="todo2 : ${todos2}"
+						data-uid="${todo2.uid}"
 						class="task-wrapper"
 					>
 						<div>
 							<input type="checkbox" class="checkbox-task" />
 							<label
-								th:if="${todo.activity2 != null and todo.activity2.trim() != ''}"
-								th:text="${todo.activity2}"
+								th:if="${todo2.activity2 != null and todo2.activity2.trim() != ''}"
+								th:text="${todo2.activity2}"
 								class="strikethrough"
 							></label>
 							<button
 								class="delete-button"
-								th:onclick="'deleteTodo('+${todo.uid}+')'"
+								th:onclick="'deleteTodo('+${todo2.uid}+')'"
 							>
 								<img src="/img/redcross.png" alt="Delete" />
 							</button>
@@ -179,20 +179,20 @@
 			<div class="content">
 				<ul class="task-list" id="list-container-3">
 					<li
-						th:each="todo : ${todos}"
-						data-uid="${todo.uid}"
+						th:each="todo3 : ${todos3}"
+						data-uid="${todo3.uid}"
 						class="task-wrapper"
 					>
 						<div>
 							<input type="checkbox" class="checkbox-task" />
 							<label
-								th:if="${todo.activity3 != null and todo.activity3.trim() != ''}"
-								th:text="${todo.activity3}"
+								th:if="${todo3.activity3 != null and todo3.activity3.trim() != ''}"
+								th:text="${todo3.activity3}"
 								class="strikethrough"
 							></label>
 							<button
 								class="delete-button"
-								th:onclick="'deleteTodo('+${todo.uid}+')'"
+								th:onclick="'deleteTodo('+${todo3.uid}+')'"
 							>
 								<img src="/img/redcross.png" alt="Delete" />
 							</button>
