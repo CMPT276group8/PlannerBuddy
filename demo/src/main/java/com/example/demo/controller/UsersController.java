@@ -121,6 +121,11 @@ public String login(
         return "admin_page";
     }
 
+    @GetMapping("/calendar")
+    public String calendarPage(){
+        return "calendar_page";
+    }
+
     @GetMapping("/main/{id}")
     public String showById(Model model, HttpServletResponse response, @PathVariable Integer id) {
     Optional<UsersModel> userOptional = usersRepository.findById(id);
@@ -170,6 +175,7 @@ public String login(
     UsersModel authenticatedUser = (UsersModel) model.getAttribute("us");
     model.addAttribute("us", authenticatedUser);
     return "main_page";
+
 }
 }
 
