@@ -514,7 +514,6 @@ ul li.checked::before {
 .icon-wrapper{
 	border: none; 
 	border-color: transparent;
-	background-color:white;
 }
 
 .mapModal {
