@@ -21,7 +21,6 @@
 					<span class="image">
 						<img src="/img/logo1.png" alt="logo" id="logo" />
 					</span>
-
 					<div class="text logo-text">
 						<span class="name">PlannerBuddy</span>
 					</div>
@@ -32,14 +31,7 @@
 				<div class="menu">
 					<ul class="menu-links">
 						<li class="nav-link">
-							<a href="#">
-								<i class="bx bx-map icon"></i>
-								<span class="text nav-text">Map</span>
-							</a>
-						</li>
-
-						<li class="nav-link">
-							<a href="#">
+							<a href="/calendar">
 								<i class="bx bx-calendar icon"></i>
 								<span class="text nav-text">Calendar</span>
 							</a>
@@ -116,10 +108,18 @@
 								<img src="/img/redcross.png" alt="Delete" />
 							</button>
 						</div>
-						<div class="icon-wrapper">
-							<a href="" class="icon"><i class="fa-regular fa-map"></i></a>
-							<a href="" class="icon"><i class="fa-regular fa-calendar"></i></a>
+						<div class="icon-wrapper" data-modal="modal-1">
+							<button  class="icon map-button"><i class="fa-regular fa-map"></i></a>
+							<button class="icon calendar-icon"><i class="fa-regular fa-calendar"></i></a>
 						</div>
+						<dialog class = "mapModal" id = "modal-1"> 
+							 <div class="modal-content">
+        						<span class="close">&times;</span>
+        						<label for="inputText">Destination : </label>
+        						<input type="text" class="inputText" name="inputText">
+        						<button class="search-button">Search</button>
+    						</div>
+						</dialog>
 					</li>
 				</ul>
 			</div>
@@ -157,10 +157,18 @@
 								<img src="/img/redcross.png" alt="Delete" />
 							</button>
 						</div>
-						<div class="icon-wrapper">
-							<a href="" class="icon"><i class="fa-regular fa-map"></i></a>
-							<a href="" class="icon"><i class="fa-regular fa-calendar"></i></a>
+						<div class="icon-wrapper" data-modal="modal-2">
+							<button class="icon map-button"><i class="fa-regular fa-map"></i></a>
+							<button class="icon calendar-icon"><i class="fa-regular fa-calendar"></i></a>
 						</div>
+						<dialog class = "mapModal" id = "modal-2"> 
+							 <div class="modal-content">
+        						<span class="close">&times;</span>
+        						<label for="inputText">Destination : </label>
+        						<input type="text" class="inputText" name="inputText">
+        						<button class="search-button">Search</button>
+    						</div>
+						</dialog>
 					</li>
 				</ul>
 			</div>
@@ -197,10 +205,18 @@
 								<img src="/img/redcross.png" alt="Delete" />
 							</button>
 						</div>
-						<div class="icon-wrapper">
-							<a href="" class="icon"><i class="fa-regular fa-map"></i></a>
-							<a href="" class="icon"><i class="fa-regular fa-calendar"></i></a>
+						<div class="icon-wrapper" data-modal="modal-3">
+							<button  class="icon map-button"><i class="fa-regular fa-map"></i></a>
+							<button class="icon calendar-icon"><i class="fa-regular fa-calendar"></i></a>
 						</div>
+						<dialog class = "mapModal" id = "modal-3"> 
+							 <div class="modal-content">
+        						<span class="close">&times;</span>
+        						<label for="inputText">Destination : </label>
+        						<input type="text" class="inputText" name="inputText">
+        						<button class="search-button">Search</button>
+    						</div>
+						</dialog>
 					</li>
 				</ul>
 			</div>
