@@ -121,8 +121,9 @@ public String login(
         return "admin_page";
     }
 
-    @GetMapping("/calendar")
-    public String calendarPage(){
+    @GetMapping("/calendar/{id}")
+    public String showCalendarById(Model model, HttpServletResponse response, @PathVariable Integer id) {
+        Optional<UsersModel> userOptional = usersRepository.findById(id);
         return "calendar_page";
     }
 
