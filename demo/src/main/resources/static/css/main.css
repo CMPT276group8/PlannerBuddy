@@ -542,3 +542,78 @@ ul li.checked::before {
 	border-radius: 3px;
 	size: 15px;
 }
+
+/* Chat container styles */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+  
+  /* Chat box styles */
+  .chat-box {
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	max-height: 400px; /* Adjust as needed */
+	overflow-y: auto;
+	padding: 10px;
+	width: 70%;
+  }
+  
+  /* Chat messages styles */
+  .chat-messages {
+	margin-bottom: 10px;
+  }
+  
+  /* Input box styles */
+  .input-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin-top: 10px;
+    position: sticky;
+    bottom: 0;
+
+}
+  
+  .input-box input[type="text"] {
+	flex: 1;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	outline: none;
+	color: black;
+  }
+  
+  .input-box button {
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 10px;
+  }
+  
+  .input-box button:hover {
+	background-color: #45a049;
+  }
+
+  body.dark .icon-wrapper .icon {
+  color: white; /* Set the color to white in dark mode */
+}
+
+/* Revert the color of the icons to their original state in light mode */
+body:not(.dark) .icon-wrapper .icon {
+  color: black; /* Set the color back to black in light mode */
+}
