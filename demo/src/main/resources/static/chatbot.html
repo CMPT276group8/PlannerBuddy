@@ -23,17 +23,22 @@
 
         <div class="menu-bar">
             <div class="menu">
-
                 <ul class="menu-links">
-
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-calendar icon'></i>
+                        <a th:href="'/calendar/' + ${us.id}">
+                            <i class="bx bx-calendar icon"></i>
                             <span class="text nav-text">Calendar</span>
                         </a>
                     </li>
 
+                    <li class="nav-link">
+                        <a>
+                            <i class="bx bx-bot icon"></i>
+                            <span class="text nav-text">ChatGPT</span>
+                        </a>
+                    </li>
                 </ul>
+            </div>
             </div>
 
             <div class="bottom-content">

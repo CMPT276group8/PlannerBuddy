@@ -420,6 +420,7 @@ ul li {
 
 .checkbox-task:checked + label.strikethrough {
 	text-decoration: line-through;
+	text-decoration-thickness: 2px;
 }
 /* ul li::before {
 	content: "";
@@ -440,6 +441,7 @@ ul li.checked {
 
 ul li.checked .task-text {
 	text-decoration: line-through;
+	text-decoration-thickness: 2px;
 }
 
 ul li .task-text:hover {
@@ -511,11 +513,24 @@ ul li.checked::before {
 .icon i {
 	font-size: 17px;
 }
+
+/* Apply the pointer cursor to all buttons inside the icon-wrapper */
+.icon-wrapper button {
+    cursor: pointer;
+}
+
+/* Apply the pointer cursor to all icons inside the icon-wrapper */
+.icon-wrapper i {
+    cursor: pointer;
+}
+
+
 .icon-wrapper {
 	color: var(--text-color);
 	border: none;
 	border-color: transparent;
 }
+
 
 .mapModal {
 	position: fixed;
@@ -617,3 +632,4 @@ ul li.checked::before {
 body:not(.dark) .icon-wrapper .icon {
   color: black; /* Set the color back to black in light mode */
 }
+
