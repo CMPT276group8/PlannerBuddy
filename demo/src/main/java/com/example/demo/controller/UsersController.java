@@ -124,7 +124,14 @@ public String login(
     @GetMapping("/calendar/{id}")
     public String showCalendarById(Model model, HttpServletResponse response, @PathVariable Integer id) {
         Optional<UsersModel> userOptional = usersRepository.findById(id);
-        return "calendar_page";
+        if (userOptional.isPresent()){
+            UsersModel user = userOptional.get();
+            model.addAttribute("us", user);
+            return "calendar_page";
+        } else {
+            return "redirect:/error";
+        }
+        
     }
 
     @GetMapping("/main/{id}")

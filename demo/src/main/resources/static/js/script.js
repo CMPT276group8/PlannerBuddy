@@ -169,34 +169,32 @@ function deleteTodo(uid) {
 	});
 }
 
-//getting ref for today, tomorrow, and upcoming 
-const wrappers = document.querySelectorAll('.wrapper');
-
+//getting ref for today, tomorrow, and upcoming
+const wrappers = document.querySelectorAll(".wrapper");
 
 wrappers.forEach((wrapper) => {
-  const buttons = wrapper.querySelectorAll('.map-button');
-  const modal = wrapper.querySelector('.mapModal');
+	const buttons = wrapper.querySelectorAll(".map-button");
+	const modal = wrapper.querySelector(".mapModal");
 
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      openModal(modal); //call function when the map button is clicked
-    });
-  });
-  
-  function openModal(modal) {
+	buttons.forEach((button) => {
+		button.addEventListener("click", () => {
+			openModal(modal); //call function when the map button is clicked
+		});
+	});
 
-  // Add event listener to close the modal when the close button is clicked
-  modal.querySelector('.close').addEventListener('click', () => {
-    modal.close();
-  });
+	function openModal(modal) {
+		// Add event listener to close the modal when the close button is clicked
+		modal.querySelector(".close").addEventListener("click", () => {
+			modal.close();
+		});
 
-  // Add event listener to close the modal when clicking outside the modal
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.close();
-    }
-  });
+		// Add event listener to close the modal when clicking outside the modal
+		modal.addEventListener("click", (event) => {
+			if (event.target === modal) {
+				modal.close();
+			}
+		});
 
-  modal.showModal(); 
-	}	
+		modal.showModal();
+	}
 });
