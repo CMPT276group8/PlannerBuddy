@@ -3,21 +3,21 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Task List</title>
-		<link rel="stylesheet" href="/css/calendar.css" />
-    <link
+		<title>ChatGPT Dashboard</title>
+		<link rel="stylesheet" href="/css/main.css" />
+		<link
 			href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
 			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		/>
 	</head>
 	<body>
 		<nav class="sidebar close">
 			<header>
-				<a class="image-text" th:href="'/main/' + ${us.id}" style="text-decoration:none">
+				<a
+					class="image-text"
+					th:href="'/main/' + ${us.id}"
+					style="text-decoration: none"
+				>
 					<span class="image">
 						<img src="/img/logo1.png" alt="logo" id="logo" />
 					</span>
@@ -68,29 +68,20 @@
 				</div>
 			</div>
 		</nav>
-    <div id="container">
-      <div id="header">
-        <div id="monthDisplay"></div>
-        <div>
-          <button id="backButton">Back</button>
-          <button id="nextButton">Next</button>
-        </div>
-      </div>
 
-      <div id="weekdays">
-        <div>Sunday</div>
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
-      </div>
+		<div class="chat-container">
+			<div class="chat-box">
+				<div class="chat-messages">
+					<!-- ChatGPT responses will be displayed here. -->
+				</div>
+			</div>
 
-      <div id="calendar"></div>
+			<div class="input-box">
+				<input type="text" id="user-input" placeholder="Type your message..." />
+				<button id="send-btn">Send</button>
 			</div>
 		</div>
+
 		<script src="/js/script.js"></script>
-		<script src="/js/calendar.js"></script>
 	</body>
 </html>

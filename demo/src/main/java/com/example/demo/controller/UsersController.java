@@ -133,6 +133,18 @@ public String login(
         }
         
     }
+    
+    @GetMapping("/chatbot/{id}")
+    public String showChatbot(Model model, HttpServletResponse response, @PathVariable Integer id) {
+        Optional<UsersModel> userOptional = usersRepository.findById(id);
+        if (userOptional.isPresent()){
+            UsersModel user = userOptional.get();
+            model.addAttribute("us", user);
+            return "chatbot_page";
+        } else {
+            return "redirect:/error";
+        }
+    }
 
     @GetMapping("/main/{id}")
     public String showById(Model model, HttpServletResponse response, @PathVariable Integer id) {
