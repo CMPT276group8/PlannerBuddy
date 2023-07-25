@@ -173,12 +173,23 @@ function deleteTodo(uid) {
 	});
 }
 
+
 //getting ref for today, tomorrow, and upcoming
 const wrappers = document.querySelectorAll(".wrapper");
+
+function showMap(event) {
+    event.preventDefault();
+    var locationInput = document.querySelector(".inputText").value;
+	var mapUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCYEJlP-DTr05LBEXcZ7m_W5fcvVmKAN_g&q=" + encodeURIComponent(locationInput);
+    var mapFrame = document.getElementById("mapFrame");
+    mapFrame.src = mapUrl;
+  }
 
 wrappers.forEach((wrapper) => {
 	const buttons = wrapper.querySelectorAll(".map-button");
 	const modal = wrapper.querySelector(".mapModal");
+	const mapFrame = modal.querySelector(".mapFrame");
+	const inputText = modal.querySelector(".inputText");
 
 	buttons.forEach((button) => {
 		button.addEventListener("click", () => {
@@ -198,40 +209,14 @@ wrappers.forEach((wrapper) => {
 				modal.close();
 			}
 		});
-
 		modal.showModal();
 	}
+
+	modal.querySelector("form").addEventListener("submit", (event) => {
+		showMap(event, modal); // Pass the current modal to the showMap function
+	  });
+	
 });
-//getting calendar ref from upcoming
-const wrappersCalendar = document.querySelectorAll(".wrapper")[2];
-
-const buttons = wrappersCalendar.querySelectorAll(".calendar-button");
-const modal = wrappersCalendar.querySelector(".calendarModal");
-
-buttons.forEach((button) => {
-	button.addEventListener("click", () => {
-		openModal(modal); //call function when the map button is clicked
-		modal.style.display = "block";
-	});
-});
-
-function openModal(modal) {
-	// Add event listener to close the modal when the close button is clicked
-	modal.querySelector(".close").addEventListener("click", () => {
-		modal.close();
-		modal.style.display = "none";
-	});
-
-	// Add event listener to close the modal when clicking outside the modal
-	modal.addEventListener("click", (event) => {
-		if (event.target === modal) {
-			modal.close();
-			modal.style.display = "none";
-		}
-	});
-
-	modal.showModal();
-}
 
 function updateCompletionStatus(todoId, isChecked) {
     if (todoId === null) {

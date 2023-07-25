@@ -126,11 +126,14 @@
 							<button class="icon calendar-icon"><i class='fa-regular fa-calendar'></i></button>
 						</div>
 						<dialog class = "mapModal" id = "modal-1"> 
-							 <div class="modal-content">
-        						<span class="close">&times;</span>
-        						<label for="inputText">Destination : </label>
-        						<input type="text" class="inputText" name="inputText">
-        						<button class="search-button">Search</button>
+							<div class="modal-content">
+        						<span class="close" onclick="closeDialog()">&times;</span>
+    							<form onsubmit="showMap(event)">
+      								<label for="inputText">Destination: </label>
+      								<input type="text" class="inputText" name="inputText">
+      								<input type="submit" class="search-button" value="Search">
+    							</form>
+    							<iframe id="mapFrame" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     						</div>
 						</dialog>
 					</li>
@@ -180,11 +183,14 @@
 							<button class="icon calendar-icon"><i class="fa-regular fa-calendar"></i>
 						</div>
 						<dialog class = "mapModal" id = "modal-2"> 
-							 <div class="modal-content">
-        						<span class="close">&times;</span>
-        						<label for="inputText">Destination : </label>
-        						<input type="text" class="inputText" name="inputText">
-        						<button class="search-button">Search</button>
+							<div class="modal-content">
+        						<span class="close" onclick="closeDialog()">&times;</span>
+    							<form onsubmit="showMap(event)">
+      								<label for="inputText">Destination: </label>
+      								<input type="text" class="inputText" name="inputText">
+      								<input type="submit" class="search-button" value="Search">
+    							</form>
+    							<iframe id="mapFrame" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     						</div>
 						</dialog>
 					</li>
@@ -229,11 +235,14 @@
 							<button class="icon calendar-button"><i class="fa-regular fa-calendar"></i>
 						</div>
 						<dialog class = "mapModal" id = "modal-3"> 
-							 <div class="modal-content">
-        						<span class="close">&times;</span>
-        						<label for="inputText">Destination : </label>
-        						<input type="text" class="inputText" name="inputText">
-        						<button class="search-button">Search</button>
+							<div class="modal-content">
+        						<span class="close" onclick="closeDialog()">&times;</span>
+    							<form onsubmit="showMap(event)">
+      								<label for="inputText">Destination: </label>
+      								<input type="text" class="inputText" name="inputText">
+      								<input type="submit" class="search-button" value="Search">
+    							</form>
+    							<iframe id="mapFrame" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     						</div>
 						</dialog>
 						<dialog class = "calendarModal" id = "modal-3"> 

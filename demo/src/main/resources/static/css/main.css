@@ -535,7 +535,8 @@ ul li.checked::before {
 
 .modal-content {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	gap: 20px;
 }
 
 .mapModal {
@@ -547,6 +548,7 @@ ul li.checked::before {
 	border: none;
 	border-radius: 20px;
 	padding: 20px;
+	height: 600px;
 
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
