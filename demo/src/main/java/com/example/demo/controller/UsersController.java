@@ -178,6 +178,81 @@ public class UsersController {
             }
         }
 
+        //sort todos1
+        for (int i = 0; i < todos1.size(); i++) {
+            for (int j = i + 1; j < todos1.size(); j++) {
+                Todo temp = new Todo();
+                if (todos1.get(j).getUid() < todos1.get(i).getUid()) {
+                    System.out.print("change j" + todos1.get(j).getUid() + "i" + todos1.get(i).getUid() + "\n");
+
+                    // Swapping
+                    temp.setUid(todos1.get(i).getUid());
+                    temp.setActivity(todos1.get(i).getActivity());
+                    temp.setCompleted(todos1.get(i).getCompleted());
+
+                    //arr[i] = arr[j];
+                    todos1.get(i).setUid(todos1.get(j).getUid());
+                    todos1.get(i).setActivity(todos1.get(j).getActivity());
+                    todos1.get(i).setCompleted(todos1.get(j).getCompleted());
+
+                    //arr[j] = temp;
+                    todos1.get(j).setUid(temp.getUid());
+                    todos1.get(j).setActivity(temp.getActivity());
+                    todos1.get(j).setCompleted(temp.getCompleted());
+                }
+            }
+        }
+
+        //sort todos2
+        for (int i = 0; i < todos2.size(); i++) {
+            for (int j = i + 1; j < todos2.size(); j++) {
+                Todo temp = new Todo();
+                if (todos2.get(j).getUid() < todos2.get(i).getUid()) {
+                    System.out.print("change j" + todos2.get(j).getUid() + "i" + todos2.get(i).getUid() + "\n");
+
+                    // Swapping
+                    temp.setUid(todos2.get(i).getUid());
+                    temp.setActivity(todos2.get(i).getActivity());
+                    temp.setCompleted(todos2.get(i).getCompleted());
+
+                    //arr[i] = arr[j];
+                    todos2.get(i).setUid(todos2.get(j).getUid());
+                    todos2.get(i).setActivity(todos2.get(j).getActivity());
+                    todos2.get(i).setCompleted(todos2.get(j).getCompleted());
+
+                    //arr[j] = temp;
+                    todos2.get(j).setUid(temp.getUid());
+                    todos2.get(j).setActivity(temp.getActivity());
+                    todos2.get(j).setCompleted(temp.getCompleted());
+                }
+            }
+        }
+
+        //sort todos3
+        for (int i = 0; i < todos3.size(); i++) {
+            for (int j = i + 1; j < todos3.size(); j++) {
+                Todo temp = new Todo();
+                if (todos3.get(j).getUid() < todos3.get(i).getUid()) {
+                    System.out.print("change j" + todos3.get(j).getUid() + "i" + todos3.get(i).getUid() + "\n");
+
+                    // Swapping
+                    temp.setUid(todos3.get(i).getUid());
+                    temp.setActivity(todos3.get(i).getActivity());
+                    temp.setCompleted(todos3.get(i).getCompleted());
+
+                    //arr[i] = arr[j];
+                    todos3.get(i).setUid(todos3.get(j).getUid());
+                    todos3.get(i).setActivity(todos3.get(j).getActivity());
+                    todos3.get(i).setCompleted(todos3.get(j).getCompleted());
+
+                    //arr[j] = temp;
+                    todos3.get(j).setUid(temp.getUid());
+                    todos3.get(j).setActivity(temp.getActivity());
+                    todos3.get(j).setCompleted(temp.getCompleted());
+                }
+            }
+        }
+
         model.addAttribute("us", user);
         model.addAttribute("todos", todos);
         model.addAttribute("todos1", todos1);
