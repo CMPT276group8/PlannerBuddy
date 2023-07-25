@@ -500,6 +500,10 @@ ul li.checked::before {
 	display: flex;
 	justify-content: space-between;
 }
+.sub-task-wrapper {
+	display: flex;
+	flex-direction: row;
+}
 
 .calendar-icon {
 	margin-left: 1rem;

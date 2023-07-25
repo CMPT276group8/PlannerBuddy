@@ -173,7 +173,6 @@ function deleteTodo(uid) {
 	});
 }
 
-
 //getting ref for today, tomorrow, and upcoming
 const wrappers = document.querySelectorAll(".wrapper");
 
@@ -185,13 +184,15 @@ const wrappers = document.querySelectorAll(".wrapper");
     mapFrame.src = mapUrl;
   } */
 
-  function showMap(event, modal) {
+function showMap(event, modal) {
 	event.preventDefault();
 	var locationInput = modal.querySelector(".inputText").value;
-	var mapUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCYEJlP-DTr05LBEXcZ7m_W5fcvVmKAN_g&q=" + encodeURIComponent(locationInput);
+	var mapUrl =
+		"https://www.google.com/maps/embed/v1/place?key=AIzaSyCYEJlP-DTr05LBEXcZ7m_W5fcvVmKAN_g&q=" +
+		encodeURIComponent(locationInput);
 	var mapFrame = modal.querySelector("#mapFrame");
 	mapFrame.src = mapUrl;
-  }
+}
 
 wrappers.forEach((wrapper) => {
 	const buttons = wrapper.querySelectorAll(".map-button");
@@ -220,29 +221,57 @@ wrappers.forEach((wrapper) => {
 		modal.showModal();
 		modal.querySelector("form").addEventListener("submit", (event) => {
 			showMap(event, modal); // Pass the current modal to the showMap function
-		  });
+		});
 	}
-
-	
-	
 });
 
-function updateCompletionStatus(todoId, isChecked) {
-    if (todoId === null) {
-        //console.error("Invalid todoId: todoId is null.");
-        return;
-    }
+//getting calendar ref from upcoming
+const wrappersCalendar = document.querySelectorAll(".wrapper")[2];
 
-    // Send an AJAX request to the server to update the "completed" status
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", `/setTrue?uid=${todoId}&completed=${isChecked}`);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-           // console.log("Status updated successfully.");
-        } else {
-            //console.error("Failed to update status.");
-        }
-    };
-    xhr.send();
+const buttons = wrappersCalendar.querySelectorAll(".calendar-button");
+const modal = wrappersCalendar.querySelector(".calendarModal");
+
+buttons.forEach((button) => {
+	button.addEventListener("click", () => {
+		openModal(modal); //call function when the map button is clicked
+		modal.style.display = "block";
+	});
+});
+
+function openModal(modal) {
+	// Add event listener to close the modal when the close button is clicked
+	modal.querySelector(".close").addEventListener("click", () => {
+		modal.close();
+		modal.style.display = "none";
+	});
+
+	// Add event listener to close the modal when clicking outside the modal
+	modal.addEventListener("click", (event) => {
+		if (event.target === modal) {
+			modal.close();
+			modal.style.display = "none";
+		}
+	});
+
+	modal.showModal();
+}
+
+function updateCompletionStatus(todoId, isChecked) {
+	if (todoId === null) {
+		//console.error("Invalid todoId: todoId is null.");
+		return;
+	}
+
+	// Send an AJAX request to the server to update the "completed" status
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", `/setTrue?uid=${todoId}&completed=${isChecked}`);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onload = function () {
+		if (xhr.status === 200) {
+			// console.log("Status updated successfully.");
+		} else {
+			//console.error("Failed to update status.");
+		}
+	};
+	xhr.send();
 }
