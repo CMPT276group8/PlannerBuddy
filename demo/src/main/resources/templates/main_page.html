@@ -103,8 +103,9 @@
 						class="task-wrapper"
 					>
 						<div>
-							<input type="checkbox" class="checkbox-task" />
-							<label
+							<form action = "/setTrue" method = "post">
+								<input type="checkbox" class="checkbox-task" th:checked="${todo1.completed}" th:attr="data-uid=${todo1.uid}" onchange="updateCompletionStatus(this.getAttribute('data-uid'), this.checked)" />
+								<label
 								th:if="${todo1.activity != null and todo1.activity.trim() != ''}"
 								th:text="${todo1.activity}"
 								class="strikethrough"
@@ -116,6 +117,8 @@
 							>
 								<img src="/img/redcross.png" alt="Delete" />
 							</button>
+							</form>
+							
 						</div>
 						<div class="icon-wrapper" data-modal="modal-1">
 							<button class="icon map-button"><i class="fa-regular fa-map"></i></button>
@@ -154,8 +157,9 @@
 						class="task-wrapper"
 					>
 						<div>
-							<input type="checkbox" class="checkbox-task" />
-							<label
+							<form action = "/setTrue" method = "post">
+								<input type="checkbox" class="checkbox-task" th:checked="${todo2.completed}" th:attr="data-uid=${todo2.uid}" onchange="updateCompletionStatus(this.getAttribute('data-uid'), this.checked)" />
+								<label
 								th:if="${todo2.activity2 != null and todo2.activity2.trim() != ''}"
 								th:text="${todo2.activity2}"
 								class="strikethrough"
@@ -167,6 +171,8 @@
 							>
 								<img src="/img/redcross.png" alt="Delete" />
 							</button>
+							</form>
+							
 						</div>
 						<div class="icon-wrapper" data-modal="modal-2">
 							<button class="icon map-button"><i class="fa-regular fa-map"></i>

@@ -71,7 +71,7 @@ public class UsersController {
     }
 
     @PostMapping("/login")
-public String login(
+    public String login(
     @ModelAttribute("loginRequest") UsersModel usersModel,
     BindingResult bindingResult,
     Model model

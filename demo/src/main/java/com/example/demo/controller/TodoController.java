@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.Todo;
@@ -48,6 +51,7 @@ public class TodoController {
         Todo todo = new Todo();
         todo.setActivity(activity);
         todo.setDate(date);
+        todo.setCompleted(false);
         todoService.createTodoForUser(id, todo);
         return "redirect:/main/" + id;
     }
@@ -57,6 +61,7 @@ public class TodoController {
         Todo todo = new Todo();
         todo.setActivity2(activity2);
         todo.setDate2(date);
+        todo.setCompleted(false);
         todoService.createTodoForUser(id, todo);
         return "redirect:/main/" + id;
     }
@@ -65,6 +70,7 @@ public class TodoController {
         public String addUser3(@RequestParam("activity3") String activity3, @RequestParam("id") Integer id) {
         Todo todo = new Todo();
         todo.setActivity3(activity3);
+        todo.setCompleted(false);
         todoService.createTodoForUser(id, todo);
         return "redirect:/main/" + id;
     }
@@ -108,9 +114,31 @@ public class TodoController {
     }
     }
 
+    /**@GetMapping("/chatbot")
+    public String getChatbotPage(Model model) {
+        model.addAttribute("chatbotRequest", new UsersModel());
+        return "chatbot_page";
+    }**/
+
+    @RequestMapping(value = "/setTrue", method = RequestMethod.POST)
+    public ResponseEntity<String> updateCompletionStatus(@RequestParam("uid") Integer uid, @RequestParam("completed") boolean completed) {
+        Optional<Todo> todoOptional = todoRepository.findById(uid);
+        if (todoOptional.isPresent()) {
+            Todo todo = todoOptional.get();
+            todo.setCompleted(completed);
+            todoRepository.save(todo); // Save the updated entity to the database
+            return ResponseEntity.ok().build();
+        } else {
+            // Todo not found, return an error response
+            return ResponseEntity.notFound().build();
+        }
+    }
+}
 
 
 
-}  
+
+
+  
 
 

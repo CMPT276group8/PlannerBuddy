@@ -20,6 +20,8 @@ public class Todo {
     private String Date;
     private String Date2;
     private String Date3;
+    private Boolean completed;
+
     @ManyToOne
     @JoinColumn(name = "users_id")
     private UsersModel users;
@@ -98,6 +100,16 @@ public class Todo {
     public void setUsers(UsersModel users) {
         this.users = users;
     }
+
+    public Boolean getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
+    }
+
+    
 
     
 

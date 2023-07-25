@@ -232,3 +232,23 @@ function openModal(modal) {
 
 	modal.showModal();
 }
+
+function updateCompletionStatus(todoId, isChecked) {
+    if (todoId === null) {
+        console.error("Invalid todoId: todoId is null.");
+        return;
+    }
+
+    // Send an AJAX request to the server to update the "completed" status
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/setTrue?uid=${todoId}&completed=${isChecked}`);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            console.log("Status updated successfully.");
+        } else {
+            console.error("Failed to update status.");
+        }
+    };
+    xhr.send();
+}
