@@ -89,6 +89,7 @@
 				<div class="title-content">
 					<p id="today-date"></p>
 					<form method="post" th:action="@{/users/add(id=${us.id})}">
+						<input type="hidden" name="date1" id="date1"  >
 						<input type="text" name="activity" placeholder="Enter a task..." />
 						<button type="submit">+</button>
 					</form>
@@ -108,6 +109,7 @@
 								th:text="${todo1.activity}"
 								class="strikethrough"
 							></label>
+							<label th:text="${todo1.date}"></label>
 							<button
 								class="delete-button"
 								th:onclick="'deleteTodo('+${todo1.uid}+')'"
@@ -117,7 +119,7 @@
 						</div>
 						<div class="icon-wrapper" data-modal="modal-1">
 							<button class="icon map-button"><i class="fa-regular fa-map"></i></button>
-							<button class="icon calendar-icon"><i class='bx bx-calendar icon'></i></button>
+							<button class="icon calendar-icon"><i class='fa-regular fa-calendar'></i></button>
 						</div>
 						<dialog class = "mapModal" id = "modal-1"> 
 							 <div class="modal-content">
@@ -138,6 +140,7 @@
 				<div class="title-content">
 					<p id="tomorrow-date"></p>
 					<form method="post" th:action="@{/users/add2(id=${us.id})}">
+						<input type="hidden" id="date2" name="date2" />
 						<input type="text" name="activity2" placeholder="Enter a task..." />
 						<button type="submit">+</button>
 					</form>
@@ -157,6 +160,7 @@
 								th:text="${todo2.activity2}"
 								class="strikethrough"
 							></label>
+							<label th:text="${todo2.date2}"></label>
 							<button
 								class="delete-button"
 								th:onclick="'deleteTodo('+${todo2.uid}+')'"
@@ -205,6 +209,7 @@
 								th:text="${todo3.activity3}"
 								class="strikethrough"
 							></label>
+							<label th:text="${todo3.date3}"></label>
 							<button
 								class="delete-button"
 								th:onclick="'deleteTodo('+${todo3.uid}+')'"
@@ -214,7 +219,7 @@
 						</div>
 						<div class="icon-wrapper" data-modal="modal-3">
 							<button  class="icon map-button"><i class="fa-regular fa-map"></i>
-							<button class="icon calendar-icon"><i class="fa-regular fa-calendar"></i>
+							<button class="icon calendar-button"><i class="fa-regular fa-calendar"></i>
 						</div>
 						<dialog class = "mapModal" id = "modal-3"> 
 							 <div class="modal-content">
@@ -224,6 +229,15 @@
         						<button class="search-button">Search</button>
     						</div>
 						</dialog>
+						<dialog class = "calendarModal" id = "modal-3"> 
+							<form class="modal-content" method="post" th:action="@{/date3(id=${us.id})}">
+								<span class="close">&times;</span>
+								<input type="hidden" name="uid" th:value="${todo3.uid}"  >
+								<label for="inputText">Date : </label>
+								<input type="text" class="inputText" name="date3" placeholder="M/D/YY">
+								<button type="submit" class="add-calendar-button">Add</button>
+							</form>
+					 </dialog>
 					</li>
 				</ul>
 			</div>

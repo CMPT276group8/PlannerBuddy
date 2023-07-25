@@ -17,7 +17,9 @@ public class Todo {
     private String activity;
     private String activity2;
     private String activity3;
-
+    private String Date;
+    private String Date2;
+    private String Date3;
     @ManyToOne
     @JoinColumn(name = "users_id")
     private UsersModel users;
@@ -63,6 +65,31 @@ public class Todo {
     public void setActivity3(String activity3) {
         this.activity3 = activity3;
     }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public String getDate2() {
+        return Date2;
+    }
+
+    public void setDate2(String date2) {
+        Date2 = date2;
+    }
+
+    public String getDate3() {
+        return Date3;
+    }
+
+    public void setDate3(String date3) {
+        Date3 = date3;
+    }
+
 
     public UsersModel getUsers() {
         return users;

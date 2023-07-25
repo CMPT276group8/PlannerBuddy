@@ -44,17 +44,19 @@ public class TodoController {
     }
 
     @PostMapping("/users/add")
-        public String addUser(@RequestParam("activity") String activity, @RequestParam("id") Integer id) {
+        public String addUser(@RequestParam("activity") String activity, @RequestParam("date1") String date, @RequestParam("id") Integer id) {
         Todo todo = new Todo();
         todo.setActivity(activity);
+        todo.setDate(date);
         todoService.createTodoForUser(id, todo);
         return "redirect:/main/" + id;
     }
 
     @PostMapping("/users/add2")
-        public String addUser2(@RequestParam("activity2") String activity2, @RequestParam("id") Integer id) {
+        public String addUser2(@RequestParam("activity2") String activity2, @RequestParam("date2") String date, @RequestParam("id") Integer id) {
         Todo todo = new Todo();
         todo.setActivity2(activity2);
+        todo.setDate2(date);
         todoService.createTodoForUser(id, todo);
         return "redirect:/main/" + id;
     }
@@ -66,6 +68,29 @@ public class TodoController {
         todoService.createTodoForUser(id, todo);
         return "redirect:/main/" + id;
     }
+
+    @PostMapping("/date3")
+        public String dateUser3(@RequestParam("id") Integer id, @RequestParam("uid") String uid, @RequestParam("date3") String date) {
+        Optional<UsersModel> userOptional = usersRepository.findById(id);
+        if (userOptional.isPresent()) {
+            Optional<Todo> todoOptional = todoRepository.findById(Integer.parseInt(uid));
+            Todo todo = todoOptional.get();
+            todo.setDate3(date);
+            todoRepository.save(todo);
+            return "redirect:/main/" + id;
+        } else {
+            return "redirect:/error";
+        }
+        
+    }
+
+    @DeleteMapping("/todo/delete/{uid}")
+        public String deleteById(@PathVariable("uid") int uid) {
+        //System.out.println(uid);
+        todoRepository.deleteById(uid); //delete user by id
+        return "main_page";
+    }
+
 
     @GetMapping("/td1/{id}")
     public String showTodoByUser(Model model, @PathVariable Integer id) {
@@ -83,13 +108,6 @@ public class TodoController {
     }
     }
 
-    @DeleteMapping("/todo/delete/{uid}")
-    public String deleteById(@PathVariable("uid") int uid) {
-        //System.out.println(uid);
-        todoRepository.deleteById(uid); //delete user by id
-        
-        return "main_page";
-    }
 
 
 

@@ -95,15 +95,19 @@ const options = {
 	day: "numeric",
 };
 const todayFormatted = today.toLocaleDateString("en-US", options);
+const dateTodayFormatted = today.toLocaleDateString("en-US");
 
 // Get tomorrow's date
 const tomorrow = new Date(today);
 tomorrow.setDate(today.getDate() + 1);
 const tomorrowFormatted = tomorrow.toLocaleDateString("en-US", options);
+const dateTomorrowFormatted = tomorrow.toLocaleDateString("en-US");
 
 // Update the elements with today's and tomorrow's dates
 todayDateElement.textContent = todayFormatted;
+document.getElementById("date1").value = dateTodayFormatted;
 tomorrowDateElement.textContent = tomorrowFormatted;
+document.getElementById("date2").value = dateTomorrowFormatted;
 
 function addTaskToList(listNumber, taskInput) {
 	const listContainer = document.getElementById("list-container-" + listNumber);
@@ -198,3 +202,33 @@ wrappers.forEach((wrapper) => {
 		modal.showModal();
 	}
 });
+//getting calendar ref from upcoming
+const wrappersCalendar = document.querySelectorAll(".wrapper")[2];
+
+const buttons = wrappersCalendar.querySelectorAll(".calendar-button");
+const modal = wrappersCalendar.querySelector(".calendarModal");
+
+buttons.forEach((button) => {
+	button.addEventListener("click", () => {
+		openModal(modal); //call function when the map button is clicked
+		modal.style.display = "block";
+	});
+});
+
+function openModal(modal) {
+	// Add event listener to close the modal when the close button is clicked
+	modal.querySelector(".close").addEventListener("click", () => {
+		modal.close();
+		modal.style.display = "none";
+	});
+
+	// Add event listener to close the modal when clicking outside the modal
+	modal.addEventListener("click", (event) => {
+		if (event.target === modal) {
+			modal.close();
+			modal.style.display = "none";
+		}
+	});
+
+	modal.showModal();
+}
