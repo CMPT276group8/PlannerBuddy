@@ -233,8 +233,12 @@ const modal = wrappersCalendar.querySelector(".calendarModal");
 
 buttons.forEach((button) => {
 	button.addEventListener("click", () => {
+		const uid = button.getAttribute("data-uid");
+		const activity = button.getAttribute("data-activity3");
 		openModal(modal); //call function when the map button is clicked
 		modal.style.display = "block";
+		modal.querySelector(".uidInput").value = uid;
+		modal.querySelector(".activityInput").value = activity;
 	});
 });
 

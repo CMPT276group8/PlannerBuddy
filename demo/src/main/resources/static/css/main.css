@@ -649,3 +649,7 @@ body.dark .icon-wrapper .icon {
 body:not(.dark) .icon-wrapper .icon {
 	color: black; /* Set the color back to black in light mode */
 }
+
+.activity3 {
+	margin-right: 10px;
+}

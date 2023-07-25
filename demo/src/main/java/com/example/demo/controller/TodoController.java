@@ -67,27 +67,36 @@ public class TodoController {
     }
 
     @PostMapping("/users/add3")
-        public String addUser3(@RequestParam("activity3") String activity3, @RequestParam("id") Integer id) {
+        public String addUser3(@RequestParam("activity3") String activity3,@RequestParam("date3") String date3,@RequestParam("id") Integer id) {
         Todo todo = new Todo();
         todo.setActivity3(activity3);
+        todo.setDate3(date3); // Set the date for the task
         todo.setCompleted(false);
         todoService.createTodoForUser(id, todo);
         return "redirect:/main/" + id;
     }
 
     @PostMapping("/date3")
-        public String dateUser3(@RequestParam("id") Integer id, @RequestParam("uid") String uid, @RequestParam("date3") String date) {
-        Optional<UsersModel> userOptional = usersRepository.findById(id);
-        if (userOptional.isPresent()) {
-            Optional<Todo> todoOptional = todoRepository.findById(Integer.parseInt(uid));
-            Todo todo = todoOptional.get();
-            todo.setDate3(date);
-            todoRepository.save(todo);
-            return "redirect:/main/" + id;
-        } else {
-            return "redirect:/error";
-        }
-        
+        public String dateUser3(@RequestParam("id") Integer id, @RequestParam("uid") String uid, @RequestParam("date3") String date3, @RequestParam("activity3") String activity3) {
+        // Optional<UsersModel> userOptional = usersRepository.findById(id);
+        // if (userOptional.isPresent()) {
+        //     Optional<Todo> todoOptional = todoRepository.findById(Integer.parseInt(uid));
+        //     Todo todo = todoOptional.get();
+        //     System.out.println("todo is " + todo.getUid());
+        //     System.out.println("todo is " + todo.getActivity3());
+        //     todo.setDate3(date3);
+        //     todoRepository.save(todo);
+        //     return "redirect:/main/" + id;
+        // } else {
+        //     return "redirect:/error";
+        // }
+        todoRepository.deleteById(Integer.parseInt(uid)); //delete user by id
+        Todo todo = new Todo();
+        todo.setActivity3(activity3);
+        todo.setDate3(date3); // Set the date for the task
+        todo.setCompleted(false);
+        todoService.createTodoForUser(id, todo);
+        return "redirect:/main/" + id;
     }
 
     @DeleteMapping("/todo/delete/{uid}")
