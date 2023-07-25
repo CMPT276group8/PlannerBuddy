@@ -111,14 +111,15 @@
 								class="strikethrough"
 							></label>
 							<label th:text="${todo1.date}"></label>
-							<button
-								class="delete-button"
-								th:onclick="'deleteTodo('+${todo1.uid}+')'"
-							>
-								<img src="/img/redcross.png" alt="Delete" />
-							</button>
+							
 							</form>
 							
+							
+						</div>
+						<div class="delete-container">
+							<button class="delete-button" th:onclick="'deleteTodo(' + ${todo1.uid} + ')'">
+								<img src="/img/redcross.png" alt="Delete" />
+							</button>
 						</div>
 						<div class="icon-wrapper" data-modal="modal-1">
 							<button class="icon map-button"><i class="fa-regular fa-map"></i></button>
@@ -165,14 +166,14 @@
 								class="strikethrough"
 							></label>
 							<label th:text="${todo2.date2}"></label>
-							<button
-								class="delete-button"
-								th:onclick="'deleteTodo('+${todo2.uid}+')'"
-							>
-								<img src="/img/redcross.png" alt="Delete" />
-							</button>
+							
 							</form>
 							
+						</div>
+						<div class="delete-container">
+							<button class="delete-button" th:onclick="'deleteTodo(' + ${todo2.uid} + ')'">
+								<img src="/img/redcross.png" alt="Delete" />
+							</button>
 						</div>
 						<div class="icon-wrapper" data-modal="modal-2">
 							<button class="icon map-button"><i class="fa-regular fa-map"></i>

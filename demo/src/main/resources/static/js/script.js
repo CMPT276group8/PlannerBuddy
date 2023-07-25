@@ -235,7 +235,7 @@ function openModal(modal) {
 
 function updateCompletionStatus(todoId, isChecked) {
     if (todoId === null) {
-        console.error("Invalid todoId: todoId is null.");
+        //console.error("Invalid todoId: todoId is null.");
         return;
     }
 
@@ -245,9 +245,9 @@ function updateCompletionStatus(todoId, isChecked) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function () {
         if (xhr.status === 200) {
-            console.log("Status updated successfully.");
+           // console.log("Status updated successfully.");
         } else {
-            console.error("Failed to update status.");
+            //console.error("Failed to update status.");
         }
     };
     xhr.send();
