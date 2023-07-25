@@ -177,12 +177,20 @@ function deleteTodo(uid) {
 //getting ref for today, tomorrow, and upcoming
 const wrappers = document.querySelectorAll(".wrapper");
 
-function showMap(event) {
+/*function showMap(event) {
     event.preventDefault();
     var locationInput = document.querySelector(".inputText").value;
 	var mapUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCYEJlP-DTr05LBEXcZ7m_W5fcvVmKAN_g&q=" + encodeURIComponent(locationInput);
     var mapFrame = document.getElementById("mapFrame");
     mapFrame.src = mapUrl;
+  } */
+
+  function showMap(event, modal) {
+	event.preventDefault();
+	var locationInput = modal.querySelector(".inputText").value;
+	var mapUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCYEJlP-DTr05LBEXcZ7m_W5fcvVmKAN_g&q=" + encodeURIComponent(locationInput);
+	var mapFrame = modal.querySelector("#mapFrame");
+	mapFrame.src = mapUrl;
   }
 
 wrappers.forEach((wrapper) => {
@@ -210,11 +218,12 @@ wrappers.forEach((wrapper) => {
 			}
 		});
 		modal.showModal();
+		modal.querySelector("form").addEventListener("submit", (event) => {
+			showMap(event, modal); // Pass the current modal to the showMap function
+		  });
 	}
 
-	modal.querySelector("form").addEventListener("submit", (event) => {
-		showMap(event, modal); // Pass the current modal to the showMap function
-	  });
+	
 	
 });
 
