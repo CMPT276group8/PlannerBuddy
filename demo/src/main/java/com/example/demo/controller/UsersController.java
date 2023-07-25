@@ -183,8 +183,6 @@ public class UsersController {
             for (int j = i + 1; j < todos1.size(); j++) {
                 Todo temp = new Todo();
                 if (todos1.get(j).getUid() < todos1.get(i).getUid()) {
-                    System.out.print("change j" + todos1.get(j).getUid() + "i" + todos1.get(i).getUid() + "\n");
-
                     // Swapping
                     temp.setUid(todos1.get(i).getUid());
                     temp.setActivity(todos1.get(i).getActivity());
@@ -206,14 +204,12 @@ public class UsersController {
         //sort todos2
         for (int i = 0; i < todos2.size(); i++) {
             for (int j = i + 1; j < todos2.size(); j++) {
-                Todo temp = new Todo();
+                Todo temp2 = new Todo();
                 if (todos2.get(j).getUid() < todos2.get(i).getUid()) {
-                    System.out.print("change j" + todos2.get(j).getUid() + "i" + todos2.get(i).getUid() + "\n");
-
                     // Swapping
-                    temp.setUid(todos2.get(i).getUid());
-                    temp.setActivity(todos2.get(i).getActivity());
-                    temp.setCompleted(todos2.get(i).getCompleted());
+                    temp2.setUid(todos2.get(i).getUid());
+                    temp2.setActivity(todos2.get(i).getActivity());
+                    temp2.setCompleted(todos2.get(i).getCompleted());
 
                     //arr[i] = arr[j];
                     todos2.get(i).setUid(todos2.get(j).getUid());
@@ -221,9 +217,9 @@ public class UsersController {
                     todos2.get(i).setCompleted(todos2.get(j).getCompleted());
 
                     //arr[j] = temp;
-                    todos2.get(j).setUid(temp.getUid());
-                    todos2.get(j).setActivity(temp.getActivity());
-                    todos2.get(j).setCompleted(temp.getCompleted());
+                    todos2.get(j).setUid(temp2.getUid());
+                    todos2.get(j).setActivity(temp2.getActivity());
+                    todos2.get(j).setCompleted(temp2.getCompleted());
                 }
             }
         }
@@ -233,8 +229,6 @@ public class UsersController {
             for (int j = i + 1; j < todos3.size(); j++) {
                 Todo temp = new Todo();
                 if (todos3.get(j).getUid() < todos3.get(i).getUid()) {
-                    System.out.print("change j" + todos3.get(j).getUid() + "i" + todos3.get(i).getUid() + "\n");
-
                     // Swapping
                     temp.setUid(todos3.get(i).getUid());
                     temp.setActivity(todos3.get(i).getActivity());
