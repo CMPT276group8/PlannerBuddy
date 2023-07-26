@@ -229,17 +229,17 @@ public class UsersController {
                 if (todos2.get(j).getUid() < todos2.get(i).getUid()) {
                     // Swapping
                     temp2.setUid(todos2.get(i).getUid());
-                    temp2.setActivity(todos2.get(i).getActivity());
+                    temp2.setActivity2(todos2.get(i).getActivity2());
                     temp2.setCompleted(todos2.get(i).getCompleted());
 
                     //arr[i] = arr[j];
                     todos2.get(i).setUid(todos2.get(j).getUid());
-                    todos2.get(i).setActivity(todos2.get(j).getActivity());
+                    todos2.get(i).setActivity2(todos2.get(j).getActivity2());
                     todos2.get(i).setCompleted(todos2.get(j).getCompleted());
 
                     //arr[j] = temp;
                     todos2.get(j).setUid(temp2.getUid());
-                    todos2.get(j).setActivity(temp2.getActivity());
+                    todos2.get(j).setActivity2(temp2.getActivity2());
                     todos2.get(j).setCompleted(temp2.getCompleted());
                 }
             }
@@ -252,17 +252,17 @@ public class UsersController {
                 if (todos3.get(j).getUid() < todos3.get(i).getUid()) {
                     // Swapping
                     temp.setUid(todos3.get(i).getUid());
-                    temp.setActivity(todos3.get(i).getActivity());
+                    temp.setActivity3(todos3.get(i).getActivity3());
                     temp.setCompleted(todos3.get(i).getCompleted());
 
                     //arr[i] = arr[j];
                     todos3.get(i).setUid(todos3.get(j).getUid());
-                    todos3.get(i).setActivity(todos3.get(j).getActivity());
+                    todos3.get(i).setActivity3(todos3.get(j).getActivity3());
                     todos3.get(i).setCompleted(todos3.get(j).getCompleted());
 
                     //arr[j] = temp;
                     todos3.get(j).setUid(temp.getUid());
-                    todos3.get(j).setActivity(temp.getActivity());
+                    todos3.get(j).setActivity3(temp.getActivity3());
                     todos3.get(j).setCompleted(temp.getCompleted());
                 }
             }
