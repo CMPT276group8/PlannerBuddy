@@ -1,9 +1,10 @@
 let nav = 0;
 let clicked = null;
-let events = localStorage.getItem("events")
-	? JSON.parse(localStorage.getItem("events"))
-	: [];
+// let events = localStorage.getItem("events")
+// 	? JSON.parse(localStorage.getItem("events"))
+// 	: [];
 let eventArr = [];
+let events2 = [];
 
 const calendar = document.getElementById("calendar");
 const newEventModal = document.getElementById("newEventModal");
@@ -53,16 +54,25 @@ function load() {
 	eventArr = retrieveDataFromUl();
 
 	eventArr.forEach((eve) => {
-		events.push({
+		events2.push({
 			date: eve.date,
 			title: eve.activity,
 		});
 	});
 
-	localStorage.setItem("events", JSON.stringify(events));
+	console.log("events2 is" + JSON.stringify(events2));
 
-	console.log("Local Storage = ", localStorage);
-	localStorage.clear();
+	// eventArr.forEach((eve) => {
+	// 	events.push({
+	// 		date: eve.date,
+	// 		title: eve.activity,
+	// 	});
+	// });
+
+	// localStorage.setItem("events", JSON.stringify(events));
+
+	// console.log("Local Storage = ", localStorage);
+	// localStorage.clear();
 
 	for (let i = 1; i <= paddingDays + daysInMonth; i++) {
 		const daySquare = document.createElement("div");
@@ -72,7 +82,9 @@ function load() {
 
 		if (i > paddingDays) {
 			daySquare.innerText = i - paddingDays;
-			const eventsForDay = events.filter((e) => e.date === dayString);
+			// const eventsForDay = events.filter((e) => e.date === dayString);
+			// console.log("event", eventsForDay);
+			const eventsForDay = events2.filter((e) => e.date === dayString);
 			console.log("event", eventsForDay);
 
 			if (i - paddingDays === day && nav === 0) {
