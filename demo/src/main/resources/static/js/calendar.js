@@ -51,6 +51,8 @@ function load() {
 	calendar.innerHTML = "";
 
 	// Call retrieveDataFromUl after the page loads and update the events array
+	eventArr.length = 0;
+	events2.length = 0;
 	eventArr = retrieveDataFromUl();
 
 	eventArr.forEach((eve) => {
