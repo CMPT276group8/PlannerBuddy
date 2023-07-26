@@ -17,6 +17,8 @@
 	--text-color: black;
 	--currentDay-color: #e8f4fa;
 	--hover-color: #e8faed;
+	--calendar-background-color: #7ad3ff;
+	--calendar-text-color: #444444;
 	--tran-03: all 0.2s ease;
 	--tran-03: all 0.3s ease;
 	--tran-04: all 0.3s ease;
@@ -44,6 +46,8 @@ body.dark {
 	--text-color: #ccc;
 	--hover-color: #454545;
 	--currentDay-color: gray;
+	--calendar-background-color: #cacaca;
+	--calendar-text-color: #444444;
 }
 
 .sidebar {
@@ -351,10 +355,10 @@ button {
 	background-color: var(--currentDay-color);
 }
 .event {
-	font-size: 10px;
+	font-size: 12px;
 	padding: 3px;
-	background-color: #58bae4;
-	color: white;
+	background-color: var(--calendar-background-color);
+	color: var(--calendar-text-color);
 	border-radius: 5px;
 	max-height: 55px;
 	overflow: hidden;

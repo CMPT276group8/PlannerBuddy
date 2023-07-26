@@ -126,12 +126,33 @@ public class UsersController {
         Optional<UsersModel> userOptional = usersRepository.findById(id);
         if (userOptional.isPresent()){
             UsersModel user = userOptional.get();
+            List<Todo> todos = todoRepository.findByUsers(user);
+            List<Todo> todos1 = new ArrayList<Todo>();
+            List<Todo> todos2 = new ArrayList<Todo>();
+            List<Todo> todos3 = new ArrayList<Todo>();
+            for (int i = 0; i < todos.size(); i++) {
+                if (todos.get(i).getActivity() != null) {
+                    todos1.add(todos.get(i));
+                }
+            }
+            for (int i = 0; i < todos.size(); i++) {
+                if (todos.get(i).getActivity2() != null) {
+                    todos2.add(todos.get(i));
+                }
+            }
+            for (int i = 0; i < todos.size(); i++) {
+                if (todos.get(i).getActivity3() != null) {
+                    todos3.add(todos.get(i));
+                }
+            }
             model.addAttribute("us", user);
+            model.addAttribute("todos1", todos1);
+            model.addAttribute("todos2", todos2);
+            model.addAttribute("todos3", todos3);
             return "calendar_page";
         } else {
             return "redirect:/error";
         }
-        
     }
     
     @GetMapping("/chatbot/{id}")

@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Task List</title>
 		<link rel="stylesheet" href="/css/calendar.css" />
-    <link
+		<link
 			href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
 			rel="stylesheet"
 		/>
@@ -17,7 +17,11 @@
 	<body>
 		<nav class="sidebar close">
 			<header>
-				<a class="image-text" th:href="'/main/' + ${us.id}" style="text-decoration:none">
+				<a
+					class="image-text"
+					th:href="'/main/' + ${us.id}"
+					style="text-decoration: none"
+				>
 					<span class="image">
 						<img src="/img/logo1.png" alt="logo" id="logo" />
 					</span>
@@ -68,27 +72,53 @@
 				</div>
 			</div>
 		</nav>
-    <div id="container">
-      <div id="header">
-        <div id="monthDisplay"></div>
-        <div>
-          <button id="backButton">Back</button>
-          <button id="nextButton">Next</button>
-        </div>
-      </div>
-
-      <div id="weekdays">
-        <div>Sunday</div>
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
-      </div>
-
-      <div id="calendar"></div>
+		<div id="container">
+			<div id="header">
+				<div id="monthDisplay"></div>
+				<div>
+					<button id="backButton">Back</button>
+					<button id="nextButton">Next</button>
+				</div>
 			</div>
+
+			<ul class="calendar-wrapper" hidden>
+				<li
+					th:each="todo1 : ${todos1}"
+					data-uid="${todo1.uid}"
+					class="calendar-wrapper"
+				>
+					<input type="text" th:value="${todo1.activity}" />
+					<input type="text" th:value="${todo1.date}" />
+				</li>
+				<li
+					th:each="todo2 : ${todos2}"
+					data-uid="${todo2.uid}"
+					class="calendar-wrapper"
+				>
+					<input type="text" th:value="${todo2.activity2}" />
+					<input type="text" th:value="${todo2.date2}" />
+				</li>
+				<li
+					th:each="todo3 : ${todos3}"
+					data-uid="${todo3.uid}"
+					class="calendar-wrapper"
+				>
+					<input type="text" th:value="${todo3.activity3}" />
+					<input type="text" th:value="${todo3.date3}" />
+				</li>
+			</ul>
+
+			<div id="weekdays">
+				<div>Sunday</div>
+				<div>Monday</div>
+				<div>Tuesday</div>
+				<div>Wednesday</div>
+				<div>Thursday</div>
+				<div>Friday</div>
+				<div>Saturday</div>
+			</div>
+
+			<div id="calendar"></div>
 		</div>
 		<script src="/js/script.js"></script>
 		<script src="/js/calendar.js"></script>

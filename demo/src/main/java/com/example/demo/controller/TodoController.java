@@ -78,18 +78,6 @@ public class TodoController {
 
     @PostMapping("/date3")
         public String dateUser3(@RequestParam("id") Integer id, @RequestParam("uid") String uid, @RequestParam("date3") String date3, @RequestParam("activity3") String activity3) {
-        // Optional<UsersModel> userOptional = usersRepository.findById(id);
-        // if (userOptional.isPresent()) {
-        //     Optional<Todo> todoOptional = todoRepository.findById(Integer.parseInt(uid));
-        //     Todo todo = todoOptional.get();
-        //     System.out.println("todo is " + todo.getUid());
-        //     System.out.println("todo is " + todo.getActivity3());
-        //     todo.setDate3(date3);
-        //     todoRepository.save(todo);
-        //     return "redirect:/main/" + id;
-        // } else {
-        //     return "redirect:/error";
-        // }
         todoRepository.deleteById(Integer.parseInt(uid)); //delete user by id
         Todo todo = new Todo();
         todo.setActivity3(activity3);
@@ -149,5 +137,4 @@ public class TodoController {
 
 
   
-
 
