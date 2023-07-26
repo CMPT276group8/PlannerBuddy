@@ -258,31 +258,30 @@
 						data-uid="${todo3.uid}"
 						class="task-wrapper"
 					>
-						<div class="sub-task-wrapper">
-							<div>
-								<form action="/setTrue" method="post">
-									<input
-										type="checkbox"
-										class="checkbox-task"
-										th:checked="${todo3.completed}"
-										th:attr="data-uid=${todo3.uid}"
-										onchange="updateCompletionStatus(this.getAttribute('data-uid'), this.checked)"
-									/>
-									<label
-										th:if="${todo3.activity3 != null and todo3.activity3.trim() != ''}"
-										th:text="${todo3.activity3}"
-										class="strikethrough"
-									></label>
-								</form>
-							</div>
-							<div class="delete-container">
-								<button
-									class="delete-button"
-									th:onclick="'deleteTodo('+${todo3.uid}+')'"
-								>
-									<img src="/img/redcross.png" alt="Delete" />
-								</button>
-							</div>
+						<div>
+							<form action="/setTrue" method="post">
+								<input
+									type="checkbox"
+									class="checkbox-task"
+									th:checked="${todo3.completed}"
+									th:attr="data-uid=${todo3.uid}"
+									onchange="updateCompletionStatus(this.getAttribute('data-uid'), this.checked)"
+								/>
+								<label
+									th:if="${todo3.activity3 != null and todo3.activity3.trim() != ''}"
+									th:text="${todo3.activity3}"
+									class="strikethrough"
+								></label>
+							</form>
+						</div>
+						<label th:text="${todo3.date3}"></label>
+						<div class="delete-container">
+							<button
+								class="delete-button"
+								th:onclick="'deleteTodo('+${todo3.uid}+')'"
+							>
+								<img src="/img/redcross.png" alt="Delete" />
+							</button>
 						</div>
 						<div class="icon-wrapper" data-modal="modal-3">
 							<button class="icon map-button">
@@ -323,12 +322,14 @@
 								<span class="close">&times;</span>
 								<input type="hidden" class="uidInput" name="uid" />
 								<input type="hidden" name="activity3" class="activityInput" />
+								<label for="inputText">Previous Date : </label>
+								<label th:text="${todo3.date3}"></label>
 								<label for="inputText">Date : </label>
 								<input
 									type="text"
 									class="inputText"
 									name="date3"
-									placeholder="M/D/YY"
+									placeholder="M/D/YYYY"
 								/>
 								<button type="submit" class="add-calendar-button">Add</button>
 							</form>

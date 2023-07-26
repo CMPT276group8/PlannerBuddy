@@ -5,6 +5,17 @@ const modeSwitch = body.querySelector(".toggle-switch");
 const modeText = body.querySelector(".mode-text");
 const logo = body.querySelector("#logo");
 
+function mydate1() {
+	d = new Date(document.getElementById("dt").value);
+	dt = d.getDate();
+	mn = d.getMonth();
+	mn++;
+	yy = d.getFullYear();
+	document.getElementById("ndt").value = dt + "/" + mn + "/" + yy;
+	document.getElementById("ndt").hidden = false;
+	document.getElementById("dt").hidden = true;
+}
+
 const closeNavbar = () => {
 	sidebar.classList.add("close");
 };

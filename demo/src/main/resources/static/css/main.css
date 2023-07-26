@@ -504,6 +504,7 @@ ul li.checked::before {
 .sub-task-wrapper {
 	display: flex;
 	flex-direction: row;
+	width: 100%;
 }
 
 .calendar-icon {
