@@ -655,3 +655,15 @@ body:not(.dark) .icon-wrapper .icon {
 .activity3 {
 	margin-right: 10px;
 }
+.right-wrapper {
+	display: flex;
+	flex-direction: row;
+}
+.delete-container {
+	margin-right: 1rem;
+}
+
+.delete-container-upcoming {
+	margin-right: 1rem;
+	margin-left: 12rem;
+}

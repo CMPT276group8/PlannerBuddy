@@ -123,14 +123,14 @@
 									></label>
 								</form>
 							</div>
-							<div class="delete-container">
-								<button
-									class="delete-button"
-									th:onclick="'deleteTodo(' + ${todo1.uid} + ')'"
-								>
-									<img src="/img/redcross.png" alt="Delete" />
-								</button>
-							</div>
+						</div>
+						<div class="delete-container">
+							<button
+								class="delete-button"
+								th:onclick="'deleteTodo(' + ${todo1.uid} + ')'"
+							>
+								<img src="/img/redcross.png" alt="Delete" />
+							</button>
 						</div>
 						<div class="icon-wrapper" data-modal="modal-1">
 							<button class="icon map-button">
@@ -197,14 +197,14 @@
 									></label>
 								</form>
 							</div>
-							<div class="delete-container">
-								<button
-									class="delete-button"
-									th:onclick="'deleteTodo(' + ${todo2.uid} + ')'"
-								>
-									<img src="/img/redcross.png" alt="Delete" />
-								</button>
-							</div>
+						</div>
+						<div class="delete-container">
+							<button
+								class="delete-button"
+								th:onclick="'deleteTodo(' + ${todo2.uid} + ')'"
+							>
+								<img src="/img/redcross.png" alt="Delete" />
+							</button>
 						</div>
 						<div class="icon-wrapper" data-modal="modal-2">
 							<button class="icon map-button">
@@ -274,25 +274,27 @@
 								></label>
 							</form>
 						</div>
-						<label th:text="${todo3.date3}"></label>
-						<div class="delete-container">
-							<button
-								class="delete-button"
-								th:onclick="'deleteTodo('+${todo3.uid}+')'"
-							>
-								<img src="/img/redcross.png" alt="Delete" />
-							</button>
-						</div>
-						<div class="icon-wrapper" data-modal="modal-3">
-							<button class="icon map-button">
-								<i class="fa-regular fa-map"></i>
-							</button>
-							<button
-								class="icon calendar-button"
-								th:attr="data-uid=${todo3.uid}, data-activity3=${todo3.activity3}"
-							>
-								<i class="fa-regular fa-calendar"></i>
-							</button>
+						<div class="right-wrapper">
+							<label th:text="${todo3.date3}"></label>
+							<div class="delete-container-upcoming">
+								<button
+									class="delete-button"
+									th:onclick="'deleteTodo('+${todo3.uid}+')'"
+								>
+									<img src="/img/redcross.png" alt="Delete" />
+								</button>
+							</div>
+							<div class="icon-wrapper" data-modal="modal-3">
+								<button class="icon map-button">
+									<i class="fa-regular fa-map"></i>
+								</button>
+								<button
+									class="icon calendar-button"
+									th:attr="data-uid=${todo3.uid}, data-activity3=${todo3.activity3}"
+								>
+									<i class="fa-regular fa-calendar"></i>
+								</button>
+							</div>
 						</div>
 						<dialog class="mapModal" id="modal-3">
 							<div class="modal-content">
