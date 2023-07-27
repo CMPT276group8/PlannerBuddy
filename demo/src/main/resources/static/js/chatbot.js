@@ -1,16 +1,24 @@
-const form = document.getElementById("chat-form");
+const form = document.getElementById("input-group");
 const input = document.getElementById("user-input");
 const messages = document.getElementById("chat-messages");
-const apiKey = "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";
+const apiKey = "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";
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const message = input.value;
   input.value = "";
 
-  messages.innerHTML += `<div class="message user-message">
-  <img src="/img/users.png" alt="user icon"> <span>${message}</span>
-  </div>`;
+  messages.innerHTML += 
+  `
+    <div class="d-flex justify-content-end mb-4">
+        <div class="msg_cotainer_send">
+            ${message}
+        </div>
+        <div class="img_cont_msg">
+            <img src="/img/user.png" class="rounded-circle user_img_msg">
+        </div>
+    </div>
+  `;
 
   // Use axios library to make a POST request to the OpenAI API
   const response = await axios.post(
@@ -33,7 +41,18 @@ form.addEventListener("submit", async (e) => {
   );
   const chatbotResponse = response.data.choices[0].text;
 
-  messages.innerHTML += `<div class="message bot-message">
-  <img src="/img/chatbots.png" alt="bot icon"> <span>${chatbotResponse}</span>
-  </div>`;
+  messages.innerHTML += 
+//   `<div class="message bot-message">
+//   <img src="/img/chatbot.png" alt="bot icon"> <span>${chatbotResponse}</span>
+//   </div>`;
+  `
+    <div class="d-flex justify-content-start mb-4">
+        <div class="img_cont_msg">
+            <img src="/img/robot.png" class="rounded-circle user_img_msg">
+        </div>
+        <div class="msg_cotainer">
+            ${chatbotResponse}
+        </div>
+    </div>
+  `;
 });
