@@ -21,6 +21,9 @@ public class Todo {
     private String Date2;
     private String Date3;
     private Boolean completed;
+    private String Place1;
+    private String Place2;
+    private String Place3; 
 
     @ManyToOne
     @JoinColumn(name = "users_id")
@@ -92,6 +95,28 @@ public class Todo {
         Date3 = date3;
     }
 
+    public String getPlace1() {
+        return Place1;
+    }
+
+    public void setPlace1(String place1) {
+        Place1 = place1;
+    }
+
+   public String getPlace2() {
+        return Place2;
+    }
+
+    public void setPlace2(String place2) {
+        Place2 = place2;
+    }
+    public String getPlace3() {
+        return Place3;
+    }
+
+    public void setPlace3(String place3) {
+        Place3 = place3;
+    }
 
     public UsersModel getUsers() {
         return users;

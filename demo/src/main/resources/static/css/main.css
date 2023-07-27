@@ -667,3 +667,15 @@ body:not(.dark) .icon-wrapper .icon {
 	margin-right: 1rem;
 	margin-left: 12rem;
 }
+
+.save-button{
+	bottom: 15px; 
+	background-color: rgb(152, 197, 152) ;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	size: 15px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	padding: 10px;
+}

@@ -76,6 +76,43 @@ public class TodoController {
         return "redirect:/main/" + id;
     }
 
+    @PostMapping("/place1")
+        public String placeUser1(@RequestParam("id") Integer id, @RequestParam("uid") String uid, @RequestParam("place1") String place1, @RequestParam("activity") String activity) {
+        todoRepository.deleteById(Integer.parseInt(uid)); //delete user by id
+        Todo todo = new Todo();
+        todo.setActivity(activity);
+        todo.setPlace1(place1); // Set the date for the task
+        todo.setCompleted(false);
+        todoService.createTodoForUser(id, todo);
+        return "redirect:/main/" + id;
+
+    }
+
+      @PostMapping("/place2")
+        public String placeUser2(@RequestParam("id") Integer id, @RequestParam("uid") String uid, @RequestParam("place2") String place2, @RequestParam("activity2") String activity2) {
+        todoRepository.deleteById(Integer.parseInt(uid)); //delete user by id
+        Todo todo = new Todo();
+        todo.setActivity2(activity2);
+        todo.setPlace2(place2); // Set the date for the task
+        todo.setCompleted(false);
+        todoService.createTodoForUser(id, todo);
+        return "redirect:/main/" + id;
+
+    }
+
+     @PostMapping("/place3")
+        public String placeUser3(@RequestParam("id") Integer id, @RequestParam("uid") String uid, @RequestParam("place3") String place3, @RequestParam("activity3") String activity3) {
+        todoRepository.deleteById(Integer.parseInt(uid)); //delete user by id
+        Todo todo = new Todo();
+        todo.setActivity3(activity3);
+        todo.setPlace3(place3); // Set the date for the task
+        todo.setCompleted(false);
+        todoService.createTodoForUser(id, todo);
+        return "redirect:/main/" + id;
+
+    }
+
+
     @PostMapping("/date3")
         public String dateUser3(@RequestParam("id") Integer id, @RequestParam("uid") String uid, @RequestParam("date3") String date3, @RequestParam("activity3") String activity3) {
         todoRepository.deleteById(Integer.parseInt(uid)); //delete user by id

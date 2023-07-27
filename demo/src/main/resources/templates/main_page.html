@@ -124,38 +124,44 @@
 								</form>
 							</div>
 						</div>
-						<div class="delete-container">
-							<button
-								class="delete-button"
-								th:onclick="'deleteTodo(' + ${todo1.uid} + ')'"
-							>
-								<img src="/img/redcross.png" alt="Delete" />
-							</button>
-						</div>
-						<div class="icon-wrapper" data-modal="modal-1">
-							<button class="icon map-button">
-								<i class="fa-regular fa-map"></i>
-							</button>
-						</div>
-						<dialog class="mapModal" id="modal-1">
-							<div class="modal-content">
-								<span class="close" onclick="closeDialog()">&times;</span>
-								<form onsubmit="showMap(event)">
-									<label for="inputText">Destination: </label>
-									<input type="text" class="inputText" name="inputText" />
-									<input type="submit" class="search-button" value="Search" />
-								</form>
-								<iframe
-									id="mapFrame"
-									width="400"
-									height="300"
-									style="border: 0"
-									allowfullscreen=""
-									loading="lazy"
-									referrerpolicy="no-referrer-when-downgrade"
-								></iframe>
+						<div class="right-wrapper">
+							<label th:text="${todo1.place1}" id="placeLabel"></label>
+							<div class="delete-container">
+								<button
+									class="delete-button"
+									th:onclick="'deleteTodo(' + ${todo1.uid} + ')'"
+								>
+									<img src="/img/redcross.png" alt="Delete" />
+								</button>
 							</div>
-						</dialog>
+							<div class="icon-wrapper" data-modal="modal-1">
+								<button class="icon map-button"
+									th:attr="data-uid=${todo1.uid}, data-activity=${todo1.activity}"
+								>
+									<i class="fa-regular fa-map"></i>
+								</button>
+							</div>
+							<dialog class="mapModal" id="modal-1">
+								<div class="modal-content">
+									<span class="close" onclick="closeDialog()">&times;</span>
+									<form onsubmit="showMap(event)">
+										<label for="inputText">Destination: </label>
+										<input type="text" class="inputText" name="place1" />
+										<input type="submit" class="search-button" value="Search" />
+									</form>
+									<iframe
+										id="mapFrame"
+										width="400"
+										height="300"
+										style="border: 0"
+										allowfullscreen=""
+										loading="lazy"
+										referrerpolicy="no-referrer-when-downgrade"
+									></iframe>
+									<input type="submit" class="save-button" value="Save address" onclick="displayPlace()"/> 
+								</div>
+							</dialog>
+						</div>	
 					</li>
 				</ul>
 			</div>
@@ -198,38 +204,45 @@
 								</form>
 							</div>
 						</div>
-						<div class="delete-container">
-							<button
-								class="delete-button"
-								th:onclick="'deleteTodo(' + ${todo2.uid} + ')'"
-							>
-								<img src="/img/redcross.png" alt="Delete" />
-							</button>
-						</div>
-						<div class="icon-wrapper" data-modal="modal-2">
-							<button class="icon map-button">
-								<i class="fa-regular fa-map"></i>
-							</button>
-						</div>
-						<dialog class="mapModal" id="modal-2">
-							<div class="modal-content">
-								<span class="close" onclick="closeDialog()">&times;</span>
-								<form onsubmit="showMap(event)">
-									<label for="inputText">Destination: </label>
-									<input type="text" class="inputText" name="inputText" />
-									<input type="submit" class="search-button" value="Search" />
-								</form>
-								<iframe
-									id="mapFrame"
-									width="400"
-									height="300"
-									style="border: 0"
-									allowfullscreen=""
-									loading="lazy"
-									referrerpolicy="no-referrer-when-downgrade"
-								></iframe>
+						<div class="right-wrapper">
+							<label th:text="${todo2.place2}" id="placeLabel"></label>
+							<div class="delete-container">
+								<button
+									class="delete-button"
+									th:onclick="'deleteTodo(' + ${todo2.uid} + ')'"
+								>
+									<img src="/img/redcross.png" alt="Delete" />
+								</button>
 							</div>
-						</dialog>
+							<div class="icon-wrapper" data-modal="modal-2">
+								<button class="icon map-button"
+									th:attr="data-uid=${todo2.uid}, data-activity2=${todo2.activity2}"
+								>
+									<i class="fa-regular fa-map"></i>
+								</button>
+							</div>
+							<dialog class="mapModal" id="modal-2">
+								<div class="modal-content">
+									<span class="close" onclick="closeDialog()">&times;</span>
+									<form onsubmit="showMap(event)">
+										<label for="inputText"> Destination: </label>
+										<input type="text" class="inputText" name="place2" />
+										<input type="submit" class="search-button" value="Search" />
+									
+									</form>
+									<iframe
+										id="mapFrame"
+										width="400"
+										height="300"
+										style="border: 0"
+										allowfullscreen=""
+										loading="lazy"
+										referrerpolicy="no-referrer-when-downgrade"
+									></iframe>
+									<input type="submit" class="save-button" value="Save address" onclick="displayPlace()"/>
+								</div>
+							</dialog>
+						</div>
 					</li>
 				</ul>
 			</div>
@@ -275,6 +288,7 @@
 							</form>
 						</div>
 						<div class="right-wrapper">
+							<label th:text="${todo3.place3}" id="placeLabel"></label>
 							<label th:text="${todo3.date3}"></label>
 							<div class="delete-container-upcoming">
 								<button
@@ -285,7 +299,10 @@
 								</button>
 							</div>
 							<div class="icon-wrapper" data-modal="modal-3">
-								<button class="icon map-button">
+								<button 
+									class="icon map-button"
+									th:attr="data-uid=${todo3.uid}, data-activity3=${todo3.activity3}"
+								>
 									<i class="fa-regular fa-map"></i>
 								</button>
 								<button
@@ -301,7 +318,7 @@
 								<span class="close" onclick="closeDialog()">&times;</span>
 								<form onsubmit="showMap(event)">
 									<label for="inputText">Destination: </label>
-									<input type="text" class="inputText" name="inputText" />
+									<input type="text" class="inputText" name="place3" />
 									<input type="submit" class="search-button" value="Search" />
 								</form>
 								<iframe
@@ -313,6 +330,7 @@
 									loading="lazy"
 									referrerpolicy="no-referrer-when-downgrade"
 								></iframe>
+								<input type="submit" class="save-button" value="Save address" onclick="displayPlace()"/>
 							</div>
 						</dialog>
 						<dialog class="calendarModal" id="modal-3">

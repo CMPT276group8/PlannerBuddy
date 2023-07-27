@@ -187,13 +187,6 @@ function deleteTodo(uid) {
 //getting ref for today, tomorrow, and upcoming
 const wrappers = document.querySelectorAll(".wrapper");
 
-/*function showMap(event) {
-    event.preventDefault();
-    var locationInput = document.querySelector(".inputText").value;
-	var mapUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCYEJlP-DTr05LBEXcZ7m_W5fcvVmKAN_g&q=" + encodeURIComponent(locationInput);
-    var mapFrame = document.getElementById("mapFrame");
-    mapFrame.src = mapUrl;
-  } */
 
 function showMap(event, modal) {
 	event.preventDefault();
@@ -217,22 +210,38 @@ wrappers.forEach((wrapper) => {
 		});
 	});
 
+
 	function openModal(modal) {
 		// Add event listener to close the modal when the close button is clicked
 		modal.querySelector(".close").addEventListener("click", () => {
 			modal.close();
+	
 		});
 
 		// Add event listener to close the modal when clicking outside the modal
 		modal.addEventListener("click", (event) => {
 			if (event.target === modal) {
 				modal.close();
+				
 			}
 		});
 		modal.showModal();
 		modal.querySelector("form").addEventListener("submit", (event) => {
 			showMap(event, modal); // Pass the current modal to the showMap function
 		});
+		function displayPlace() {
+			const placeInput = modal.querySelector(".inputText");
+			const inputValue = placeInput.value;
+		
+			// Update the label text with the saved address value
+			const placeLabel = document.getElementById("placeLabel");
+			placeLabel.innerText = inputValue;
+		
+			// Optionally, close the modal after saving the address
+			modal.close();
+		  }
+		const saveButton = modal.querySelector(".save-button");
+		saveButton.addEventListener("click", displayPlace);
 	}
 });
 
