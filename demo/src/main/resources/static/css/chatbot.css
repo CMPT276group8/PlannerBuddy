@@ -1,3 +1,19 @@
+.nav-link {
+	display: block;
+	padding: 0;
+}
+
+.close {
+	opacity: 1;
+}
+
+.close:not(:disabled):not(.disabled):focus,
+.close:not(:disabled):not(.disabled):hover {
+	color: #000;
+	text-decoration: none;
+	opacity: 1w;
+}
+
 .chat {
 	margin-top: auto;
 	margin-bottom: auto;
@@ -128,20 +144,17 @@
 	width: 10px;
 }
 
-
 /* Track */
 
 ::-webkit-scrollbar-track {
 	background: #f1f1f1;
 }
 
-
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
 	background: #888;
 }
-
 
 /* Handle on hover */
 
