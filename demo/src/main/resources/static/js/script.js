@@ -187,7 +187,6 @@ function deleteTodo(uid) {
 //getting ref for today, tomorrow, and upcoming
 const wrappers = document.querySelectorAll(".wrapper");
 
-
 function showMap(event, modal) {
 	event.preventDefault();
 	var locationInput = modal.querySelector(".inputText").value;
@@ -210,19 +209,16 @@ wrappers.forEach((wrapper) => {
 		});
 	});
 
-
 	function openModal(modal) {
 		// Add event listener to close the modal when the close button is clicked
 		modal.querySelector(".close").addEventListener("click", () => {
 			modal.close();
-	
 		});
 
 		// Add event listener to close the modal when clicking outside the modal
 		modal.addEventListener("click", (event) => {
 			if (event.target === modal) {
 				modal.close();
-				
 			}
 		});
 		modal.showModal();
@@ -232,14 +228,14 @@ wrappers.forEach((wrapper) => {
 		function displayPlace() {
 			const placeInput = modal.querySelector(".inputText");
 			const inputValue = placeInput.value;
-		
+
 			// Update the label text with the saved address value
 			const placeLabel = document.getElementById("placeLabel");
 			placeLabel.innerText = inputValue;
-		
+
 			// Optionally, close the modal after saving the address
 			modal.close();
-		  }
+		}
 		const saveButton = modal.querySelector(".save-button");
 		saveButton.addEventListener("click", displayPlace);
 	}
@@ -299,3 +295,15 @@ function updateCompletionStatus(todoId, isChecked) {
 	};
 	xhr.send();
 }
+function formatDate(dateValue) {
+	const [year, month, day] = dateValue.split("-");
+	const formattedMonth = month.replace(/^0+/, ""); // Remove leading zeros from the month
+	const formattedDay = day.replace(/^0+/, ""); // Remove leading zeros from the day
+	return `${formattedMonth}/${formattedDay}/${year}`;
+}
+// Event listener to update hidden input when dateValue3 changes
+document.getElementById("dateValue3").addEventListener("change", function () {
+	const dateValue3 = this.value; // Get the value of dateValue3
+	const formattedDate = formatDate(dateValue3); // Convert to desired format
+	document.querySelector('input[name="date3"]').value = formattedDate; // Set the value of date3
+});

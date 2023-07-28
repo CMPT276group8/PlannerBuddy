@@ -135,7 +135,8 @@
 								</button>
 							</div>
 							<div class="icon-wrapper" data-modal="modal-1">
-								<button class="icon map-button"
+								<button
+									class="icon map-button"
 									th:attr="data-uid=${todo1.uid}, data-activity=${todo1.activity}"
 								>
 									<i class="fa-regular fa-map"></i>
@@ -158,10 +159,15 @@
 										loading="lazy"
 										referrerpolicy="no-referrer-when-downgrade"
 									></iframe>
-									<input type="submit" class="save-button" value="Save address" onclick="displayPlace()"/> 
+									<input
+										type="submit"
+										class="save-button"
+										value="Save address"
+										onclick="displayPlace()"
+									/>
 								</div>
 							</dialog>
-						</div>	
+						</div>
 					</li>
 				</ul>
 			</div>
@@ -215,7 +221,8 @@
 								</button>
 							</div>
 							<div class="icon-wrapper" data-modal="modal-2">
-								<button class="icon map-button"
+								<button
+									class="icon map-button"
 									th:attr="data-uid=${todo2.uid}, data-activity2=${todo2.activity2}"
 								>
 									<i class="fa-regular fa-map"></i>
@@ -228,7 +235,6 @@
 										<label for="inputText"> Destination: </label>
 										<input type="text" class="inputText" name="place2" />
 										<input type="submit" class="search-button" value="Search" />
-									
 									</form>
 									<iframe
 										id="mapFrame"
@@ -239,7 +245,12 @@
 										loading="lazy"
 										referrerpolicy="no-referrer-when-downgrade"
 									></iframe>
-									<input type="submit" class="save-button" value="Save address" onclick="displayPlace()"/>
+									<input
+										type="submit"
+										class="save-button"
+										value="Save address"
+										onclick="displayPlace()"
+									/>
 								</div>
 							</dialog>
 						</div>
@@ -259,7 +270,8 @@
 							placeholder="Enter a task..."
 							class="activity3"
 						/>
-						<input type="text" name="date3" placeholder="M/D/YYYY" />
+						<input type="date" id="dateValue3" />
+						<input type="hidden" name="date3" />
 						<button type="submit">+</button>
 					</form>
 				</div>
@@ -299,7 +311,7 @@
 								</button>
 							</div>
 							<div class="icon-wrapper" data-modal="modal-3">
-								<button 
+								<button
 									class="icon map-button"
 									th:attr="data-uid=${todo3.uid}, data-activity3=${todo3.activity3}"
 								>
@@ -330,7 +342,12 @@
 									loading="lazy"
 									referrerpolicy="no-referrer-when-downgrade"
 								></iframe>
-								<input type="submit" class="save-button" value="Save address" onclick="displayPlace()"/>
+								<input
+									type="submit"
+									class="save-button"
+									value="Save address"
+									onclick="displayPlace()"
+								/>
 							</div>
 						</dialog>
 						<dialog class="calendarModal" id="modal-3">
