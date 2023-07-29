@@ -658,6 +658,13 @@ body:not(.dark) .icon-wrapper .icon {
 .right-wrapper {
 	display: flex;
 	flex-direction: row;
+	width: 500px;
+	justify-content: flex-end;
+
+}
+.place-label{
+	color:#7d7d7d;
+	margin-right: 20px;
 }
 .delete-container {
 	margin-right: 1rem;
@@ -665,17 +672,17 @@ body:not(.dark) .icon-wrapper .icon {
 
 .delete-container-upcoming {
 	margin-right: 1rem;
-	margin-left: 12rem;
+	margin-left: 1rem;
 }
 
 .save-button{
 	bottom: 15px; 
-	background-color: rgb(152, 197, 152) ;
+	background-color :rgb(152, 197, 152);
 	color: white;
 	border: none;
 	border-radius: 3px;
-	size: 15px;
+	size: 10px;
 	margin: 0 auto;
-	margin-bottom: 10px;
-	padding: 10px;
+	margin-bottom: 5px;
+	padding: 5px;
 }

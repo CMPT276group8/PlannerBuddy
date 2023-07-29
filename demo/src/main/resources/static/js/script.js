@@ -187,6 +187,7 @@ function deleteTodo(uid) {
 //getting ref for today, tomorrow, and upcoming
 const wrappers = document.querySelectorAll(".wrapper");
 
+//function to show the map from google map
 function showMap(event, modal) {
 	event.preventDefault();
 	var locationInput = modal.querySelector(".inputText").value;
@@ -196,50 +197,57 @@ function showMap(event, modal) {
 	var mapFrame = modal.querySelector("#mapFrame");
 	mapFrame.src = mapUrl;
 }
-
 wrappers.forEach((wrapper) => {
-	const buttons = wrapper.querySelectorAll(".map-button");
-	const modal = wrapper.querySelector(".mapModal");
-	const mapFrame = modal.querySelector(".mapFrame");
-	const inputText = modal.querySelector(".inputText");
-
-	buttons.forEach((button) => {
-		button.addEventListener("click", () => {
-			openModal(modal); //call function when the map button is clicked
+    const buttons = wrapper.querySelectorAll(".map-button");
+    const modal = wrapper.querySelector(".mapModal");
+  
+    buttons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const uid = button.getAttribute("data-uid");
+        const activity = button.getAttribute("data-activity");
+  
+        modal.querySelector(".uidInput").value = uid;
+        modal.querySelector(".activityInput").value = activity;
+  
+        openModal(modal, button); //passing the modal and the button to openModal
+      });
+    });
+  
+    function openModal(modal, button) { 
+       //close the modal when the close button is clicked
+      	modal.querySelector(".close").addEventListener("click", () => {
+        	modal.close();
+      	});
+  
+      	//close the modal when clicking outside the modal
+      	modal.addEventListener("click", (event) => {
+        	if (event.target === modal) {
+          	modal.close();
+       	 }
+      	});
+  
+      	modal.showModal();
+  
+      	// save-button will display the place in the task
+      	modal.querySelector(".save-button").addEventListener("click", () => {
+			const place = modal.querySelector(".inputText").value;
+			const taskWrapper = button.closest('.right-wrapper'); 
+			const label = taskWrapper.querySelector('.place-label'); //get the label within the right-wrap
+			label.textContent = place;
+	
+			// submit the form after label is updated
+			modal.querySelector('form').submit();
 		});
-	});
-
-	function openModal(modal) {
-		// Add event listener to close the modal when the close button is clicked
-		modal.querySelector(".close").addEventListener("click", () => {
-			modal.close();
-		});
-
-		// Add event listener to close the modal when clicking outside the modal
-		modal.addEventListener("click", (event) => {
-			if (event.target === modal) {
-				modal.close();
-			}
-		});
-		modal.showModal();
+	
 		modal.querySelector("form").addEventListener("submit", (event) => {
-			showMap(event, modal); // Pass the current modal to the showMap function
+			event.preventDefault();
+			showMap(event, modal); //pass modal to showMap function
 		});
-		function displayPlace() {
-			const placeInput = modal.querySelector(".inputText");
-			const inputValue = placeInput.value;
-
-			// Update the label text with the saved address value
-			const placeLabel = document.getElementById("placeLabel");
-			placeLabel.innerText = inputValue;
-
-			// Optionally, close the modal after saving the address
-			modal.close();
-		}
-		const saveButton = modal.querySelector(".save-button");
-		saveButton.addEventListener("click", displayPlace);
-	}
+	
+    }
 });
+
+  
 
 //getting calendar ref from upcoming
 const wrappersCalendar = document.querySelectorAll(".wrapper")[2];
@@ -259,13 +267,11 @@ buttons.forEach((button) => {
 });
 
 function openModal(modal) {
-	// Add event listener to close the modal when the close button is clicked
 	modal.querySelector(".close").addEventListener("click", () => {
 		modal.close();
 		modal.style.display = "none";
 	});
 
-	// Add event listener to close the modal when clicking outside the modal
 	modal.addEventListener("click", (event) => {
 		if (event.target === modal) {
 			modal.close();

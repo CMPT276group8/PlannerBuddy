@@ -125,7 +125,7 @@
 							</div>
 						</div>
 						<div class="right-wrapper">
-							<label th:text="${todo1.place1}" id="placeLabel"></label>
+							<label class="place-label" th:text="${todo1.place1}"></label>
 							<div class="delete-container">
 								<button
 									class="delete-button"
@@ -145,10 +145,15 @@
 							<dialog class="mapModal" id="modal-1">
 								<div class="modal-content">
 									<span class="close" onclick="closeDialog()">&times;</span>
-									<form onsubmit="showMap(event)">
+									<form
+										method="post"
+										th:action="@{/place1(id=${us.id})}">
+										<input type="hidden" class="uidInput" name="uid" />
+										<input type="hidden" name="activity" class="activityInput" />
 										<label for="inputText">Destination: </label>
-										<input type="text" class="inputText" name="place1" />
+										<input type="text" class="inputText" name="place1"/>
 										<input type="submit" class="search-button" value="Search" />
+										<button type="submit" class="save-button">Save Address</button>
 									</form>
 									<iframe
 										id="mapFrame"
@@ -159,12 +164,7 @@
 										loading="lazy"
 										referrerpolicy="no-referrer-when-downgrade"
 									></iframe>
-									<input
-										type="submit"
-										class="save-button"
-										value="Save address"
-										onclick="displayPlace()"
-									/>
+								
 								</div>
 							</dialog>
 						</div>
@@ -211,7 +211,7 @@
 							</div>
 						</div>
 						<div class="right-wrapper">
-							<label th:text="${todo2.place2}" id="placeLabel"></label>
+							<label class="place-label" th:text="${todo2.place2}"></label>
 							<div class="delete-container">
 								<button
 									class="delete-button"
@@ -231,10 +231,15 @@
 							<dialog class="mapModal" id="modal-2">
 								<div class="modal-content">
 									<span class="close" onclick="closeDialog()">&times;</span>
-									<form onsubmit="showMap(event)">
-										<label for="inputText"> Destination: </label>
-										<input type="text" class="inputText" name="place2" />
+									<form
+										method="post"
+										th:action="@{/place2(id=${us.id})}">
+										<input type="hidden" class="uidInput" name="uid" />
+										<input type="hidden" name="activity2" class="activityInput" />
+										<label for="inputText">Destination: </label>
+										<input type="text" class="inputText" name="place2"/>
 										<input type="submit" class="search-button" value="Search" />
+										<button type="submit" class="save-button">Save Address</button>
 									</form>
 									<iframe
 										id="mapFrame"
@@ -245,12 +250,7 @@
 										loading="lazy"
 										referrerpolicy="no-referrer-when-downgrade"
 									></iframe>
-									<input
-										type="submit"
-										class="save-button"
-										value="Save address"
-										onclick="displayPlace()"
-									/>
+							
 								</div>
 							</dialog>
 						</div>
@@ -300,7 +300,7 @@
 							</form>
 						</div>
 						<div class="right-wrapper">
-							<label th:text="${todo3.place3}" id="placeLabel"></label>
+							<label class="place-label" th:text="${todo3.place3}"></label>
 							<label th:text="${todo3.date3}"></label>
 							<div class="delete-container-upcoming">
 								<button
@@ -328,11 +328,16 @@
 						<dialog class="mapModal" id="modal-3">
 							<div class="modal-content">
 								<span class="close" onclick="closeDialog()">&times;</span>
-								<form onsubmit="showMap(event)">
-									<label for="inputText">Destination: </label>
-									<input type="text" class="inputText" name="place3" />
-									<input type="submit" class="search-button" value="Search" />
-								</form>
+								<form
+									method="post"
+									th:action="@{/place3(id=${us.id})}">
+										<input type="hidden" class="uidInput" name="uid" />
+										<input type="hidden" name="activity3" class="activityInput" />
+										<label for="inputText">Destination: </label>
+										<input type="text" class="inputText" name="place3"/>
+										<input type="submit" class="search-button" value="Search" />
+										<button type="submit" class="save-button">Save Address</button>
+									</form>
 								<iframe
 									id="mapFrame"
 									width="400"
@@ -342,12 +347,7 @@
 									loading="lazy"
 									referrerpolicy="no-referrer-when-downgrade"
 								></iframe>
-								<input
-									type="submit"
-									class="save-button"
-									value="Save address"
-									onclick="displayPlace()"
-								/>
+							
 							</div>
 						</dialog>
 						<dialog class="calendarModal" id="modal-3">
