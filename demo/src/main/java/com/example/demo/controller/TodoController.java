@@ -86,7 +86,6 @@ public class TodoController {
             todo.setCompleted(false);
             todoRepository.save(todo);
         }
-        
         return "redirect:/main/" + id;
     }
 
