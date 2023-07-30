@@ -91,21 +91,22 @@ public class UsersController {
     Model model,
     HttpSession session
 ) {
-    System.out.println("Username: " + usersModel.getUsername());
-    System.out.println("Password: " + usersModel.getPassword());
+    //System.out.println("Username: " + usersModel.getUsername());
+    //System.out.println("Password: " + usersModel.getPassword());
 
     UsersModel authenticated = usersService.authenticate(usersModel.getUsername(), usersModel.getPassword());
     if (authenticated != null) {
-        System.out.println("Authenticated user: " + authenticated.getUsername());
+        //System.out.println("Authenticated user: " + authenticated.getUsername());
         if (authenticated.getRole().equalsIgnoreCase("admin")) {
             // Admin user authenticated, go to admin page
             List<UsersModel> users = usersRepository.findAll();
             model.addAttribute("us", users);
+            session.setAttribute("us", authenticated); // stores admin user
             return "admin_page";
         } else {
             // Successful login, perform the desired action
             String redirectUrl = "redirect:/main/" + authenticated.getId();
-            System.out.println("Redirect URL: " + redirectUrl);
+            //System.out.println("Redirect URL: " + redirectUrl);
             session.setAttribute("us", authenticated);
             return redirectUrl;
         }
@@ -118,18 +119,17 @@ public class UsersController {
     
 
     @GetMapping("/admin")
-    public String getAllUsers(Model model){
-       UsersModel adminAuthenticated = usersService.adminAuthenticate("admin");
-        if (adminAuthenticated != null){
+    public String getAllUsers(Model model, HttpSession session){
+        UsersModel adminAuthenticated = (UsersModel) session.getAttribute("us");
+        if (adminAuthenticated != null && adminAuthenticated.getRole().equalsIgnoreCase("admin")){
             // get all users from database
             List<UsersModel> users = usersRepository.findAll();
             // end of database call
             model.addAttribute("us", users);
-        
             return "admin_page";
         }
         else{
-            return "login_page";
+            return "redirect:/login";
         }
         
     }
