@@ -4,7 +4,8 @@ const input = document.getElementById("user-input");
 const messages = document.getElementById("chat-messages");
 
 // Comment the import out if want to test locally
-import {apiKey} from './apikey.js';
+// import {apiKey} from './apikey.js';
+import {apiKey} from '/etc/secrets/apikey.js';
 
 // Uncomment the const apiKey = ... to test locally 
 // const apiKey = "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";
