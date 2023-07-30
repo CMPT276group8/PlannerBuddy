@@ -21,6 +21,7 @@ import com.example.demo.repository.UsersRepository;
 import com.example.demo.service.UsersService;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import com.example.demo.model.Todo;
 import com.example.demo.repository.TodoRepository;
@@ -41,6 +42,19 @@ public class UsersController {
     }
     @Autowired
     private TodoRepository todoRepository;
+
+    @GetMapping("/verify")
+    public String verifySession(HttpSession session) {
+        // Check if the session is valid here
+        UsersModel authenticatedUser = (UsersModel) session.getAttribute("us");
+        if (authenticatedUser != null) {
+            // Session is valid, redirect to the desired page
+            return "redirect:/main/" + authenticatedUser.getId();
+        } else {
+            // Session is not valid, redirect to the login page
+            return "redirect:/login";
+        }
+    }
 
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
@@ -74,10 +88,15 @@ public class UsersController {
     public String login(
     @ModelAttribute("loginRequest") UsersModel usersModel,
     BindingResult bindingResult,
-    Model model
+    Model model,
+    HttpSession session
 ) {
+    System.out.println("Username: " + usersModel.getUsername());
+    System.out.println("Password: " + usersModel.getPassword());
+
     UsersModel authenticated = usersService.authenticate(usersModel.getUsername(), usersModel.getPassword());
     if (authenticated != null) {
+        System.out.println("Authenticated user: " + authenticated.getUsername());
         if (authenticated.getRole().equalsIgnoreCase("admin")) {
             // Admin user authenticated, go to admin page
             List<UsersModel> users = usersRepository.findAll();
@@ -85,8 +104,10 @@ public class UsersController {
             return "admin_page";
         } else {
             // Successful login, perform the desired action
-            model.addAttribute("username", authenticated.getUsername());
-            return "redirect:/main/" + authenticated.getId();
+            String redirectUrl = "redirect:/main/" + authenticated.getId();
+            System.out.println("Redirect URL: " + redirectUrl);
+            session.setAttribute("us", authenticated);
+            return redirectUrl;
         }
     } else {
         // Login failed, display an error message
@@ -122,9 +143,10 @@ public class UsersController {
     }
 
     @GetMapping("/calendar/{id}")
-    public String showCalendarById(Model model, HttpServletResponse response, @PathVariable Integer id) {
+    public String showCalendarById(Model model, HttpSession session, @PathVariable Integer id) {
+        UsersModel authenticatedUser = (UsersModel) session.getAttribute("us");
         Optional<UsersModel> userOptional = usersRepository.findById(id);
-        if (userOptional.isPresent()){
+        if (authenticatedUser != null && authenticatedUser.getId() == id){
             UsersModel user = userOptional.get();
             List<Todo> todos = todoRepository.findByUsers(user);
             List<Todo> todos1 = new ArrayList<Todo>();
@@ -151,26 +173,29 @@ public class UsersController {
             model.addAttribute("todos3", todos3);
             return "calendar_page";
         } else {
-            return "redirect:/error";
+            return "redirect:/login";
         }
     }
     
     @GetMapping("/chatbot/{id}")
-    public String showChatbot(Model model, HttpServletResponse response, @PathVariable Integer id) {
+    public String showChatbot(Model model, HttpSession session, @PathVariable Integer id) {
+        UsersModel authenticatedUser = (UsersModel) session.getAttribute("us");
         Optional<UsersModel> userOptional = usersRepository.findById(id);
-        if (userOptional.isPresent()){
+        if (authenticatedUser != null && authenticatedUser.getId() == id){
             UsersModel user = userOptional.get();
             model.addAttribute("us", user);
             return "chatbot_page";
         } else {
-            return "redirect:/error";
+            return "redirect:/login";
         }
     }
 
     @GetMapping("/main/{id}")
-    public String showById(Model model, HttpServletResponse response, @PathVariable Integer id) {
+    public String showById(Model model, @PathVariable Integer id, HttpSession session) {
+    UsersModel authenticatedUser = (UsersModel) session.getAttribute("us");
     Optional<UsersModel> userOptional = usersRepository.findById(id);
-    if (userOptional.isPresent()) {
+    
+    if (authenticatedUser != null && userOptional.isPresent() && authenticatedUser.getId() == id) {
         UsersModel user = userOptional.get();
         List<Todo> todos = todoRepository.findByUsers(user);
         List<Todo> todos1 = new ArrayList<Todo>();
@@ -276,7 +301,7 @@ public class UsersController {
         return "main_page";
     } 
     else {
-        return "redirect:/error";
+        return "redirect:/login";
     }
     }
 
@@ -286,7 +311,8 @@ public class UsersController {
     model.addAttribute("us", authenticatedUser);
     return "main_page";
 
-}
+    }
+    
 }
 
 
