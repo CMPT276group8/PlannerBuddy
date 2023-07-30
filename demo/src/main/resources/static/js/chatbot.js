@@ -8,7 +8,7 @@ const messages = document.getElementById("chat-messages");
 // import {apiKey} from '/etc/secrets/apikey.js';
 
 // Uncomment the const apiKey = ... to test locally 
-const apiKey = "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";
+const apiKey = "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";
 
 console.log(apiKey);
 
