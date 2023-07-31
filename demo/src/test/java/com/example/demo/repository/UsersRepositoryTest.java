@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,14 +13,18 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
 import com.example.demo.model.UsersModel;
 import com.example.demo.model.Todo;
 
 import com.example.demo.repository.UsersRepository;
+import com.example.demo.service.UsersService;
 import com.example.demo.repository.TodoRepository;
-
 
 @DataJpaTest
 public class UsersRepositoryTest {
@@ -70,6 +75,7 @@ public class UsersRepositoryTest {
         assertNotEquals(userList, null);
         assertEquals(userList.size(), 2);
     }
+
     @Test
     void testSave() {
         UsersModel user = new UsersModel();
@@ -229,5 +235,22 @@ public class UsersRepositoryTest {
         assertNotEquals(checkTodo, null);
         assertEquals("Eat with Erik", checkTodo.getActivity2());
     }
+    
+    @Test
+    void testDeleteUser() {
+        UsersModel user1 = new UsersModel();
+        user1.setUsername("User1");
+        user1.setPassword("123");
+        user1.setRole("regular");
+        entityManager.persist(user1);
+        entityManager.flush();
 
+        userRepo.save(user1);
+        userRepo.deleteById(1);
+        List<UsersModel> userList = userRepo.findAll();
+
+        assertNotEquals(userList, null);
+        assertEquals(userList.size(), 0);
+    }
+    
 }

@@ -90,7 +90,7 @@ public class UsersController {
     BindingResult bindingResult,
     Model model,
     HttpSession session
-) {
+    ) {
     //System.out.println("Username: " + usersModel.getUsername());
     //System.out.println("Password: " + usersModel.getPassword());
 
@@ -130,8 +130,7 @@ public class UsersController {
         }
         else{
             return "redirect:/login";
-        }
-        
+        }  
     }
 
     @DeleteMapping("/users/delete/{id}")
