@@ -178,7 +178,7 @@ public class UsersRepositoryTest {
         assertEquals("7/28/2023", checkTodo.getDate2());
     }
 
-     @Test
+    @Test
     void testFindByCalendar3(){
         Todo todo = new Todo();
         todo.setActivity("Eat with Marco");
@@ -194,5 +194,16 @@ public class UsersRepositoryTest {
         assertEquals("4/14/2023", checkTodo.getDate3());
     }
     
+    @Test
+    void testFindByActivity(){
+        Todo todo = new Todo();
+        todo.setActivity("Eat with Marco");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+        assertNotEquals(checkTodo, null);
+        assertEquals("Eat with Marco", checkTodo.getActivity());
+    }
 
 }
