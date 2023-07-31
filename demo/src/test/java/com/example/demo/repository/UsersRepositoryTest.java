@@ -4,7 +4,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import org.checkerframework.checker.units.qual.t;
 import org.h2.engine.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.model.UsersModel;
+import com.example.demo.model.Todo;
+
 import com.example.demo.repository.UsersRepository;
+import com.example.demo.repository.TodoRepository;
+
 
 @DataJpaTest
 public class UsersRepositoryTest {
@@ -22,6 +28,9 @@ public class UsersRepositoryTest {
 
     @Autowired
     private UsersRepository userRepo;
+
+    @Autowired
+    private TodoRepository todoRepository;
 
     @Test
     void testFindByUsername() {
@@ -88,4 +97,102 @@ public class UsersRepositoryTest {
 
         assertEquals(found.get(0).getRole(), user.getRole());
     }
+
+    @Test
+    void testFindByMap(){
+        Todo todo = new Todo();
+        todo.setActivity("Eat with Erik");
+        todo.setPlace1("New York");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+
+        //UsersModel savedUser = userRepo.save(user);
+
+        assertNotEquals(checkTodo, null);
+        assertEquals("New York", checkTodo.getPlace1());
+    }
+
+    @Test
+    void testFindByMap2(){
+        Todo todo = new Todo();
+        todo.setActivity("Eat with Kevin");
+        todo.setPlace2("Las Vegas");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+
+        //UsersModel savedUser = userRepo.save(user);
+
+        assertNotEquals(checkTodo, null);
+        assertEquals("Las Vegas", checkTodo.getPlace2());
+    }
+
+    @Test
+    void testFindByMap3(){
+        Todo todo = new Todo();
+        todo.setActivity("Eat with Marco");
+        todo.setPlace3("Seattle");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+
+        //UsersModel savedUser = userRepo.save(user);
+
+        assertNotEquals(checkTodo, null);
+        assertEquals("Seattle", checkTodo.getPlace3());
+    }
+
+    @Test
+    void testFindByCalendar(){
+        Todo todo = new Todo();
+        todo.setActivity("Eat with Marco");
+        todo.setDate("7/27/2023");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+
+        //UsersModel savedUser = userRepo.save(user);
+
+        assertNotEquals(checkTodo, null);
+        assertEquals("7/27/2023", checkTodo.getDate());
+    }
+
+    @Test
+    void testFindByCalendar2(){
+        Todo todo = new Todo();
+        todo.setActivity("Eat with Marco");
+        todo.setDate2("7/28/2023");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+
+        //UsersModel savedUser = userRepo.save(user);
+
+        assertNotEquals(checkTodo, null);
+        assertEquals("7/28/2023", checkTodo.getDate2());
+    }
+
+     @Test
+    void testFindByCalendar3(){
+        Todo todo = new Todo();
+        todo.setActivity("Eat with Marco");
+        todo.setDate3("4/14/2023");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+
+        //UsersModel savedUser = userRepo.save(user);
+
+        assertNotEquals(checkTodo, null);
+        assertEquals("4/14/2023", checkTodo.getDate3());
+    }
+    
+
 }
