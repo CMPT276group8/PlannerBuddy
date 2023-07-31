@@ -206,4 +206,28 @@ public class UsersRepositoryTest {
         assertEquals("Eat with Marco", checkTodo.getActivity());
     }
 
+    @Test
+    void testFindByActivity2(){
+        Todo todo = new Todo();
+        todo.setActivity("Eat with Kevin");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+        assertNotEquals(checkTodo, null);
+        assertEquals("Eat with Kevin", checkTodo.getActivity());
+    }
+
+    @Test
+    void testFindByActivity3(){
+        Todo todo = new Todo();
+        todo.setActivity2("Eat with Erik");
+        entityManager.persist(todo);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo);
+        assertNotEquals(checkTodo, null);
+        assertEquals("Eat with Erik", checkTodo.getActivity2());
+    }
+
 }
