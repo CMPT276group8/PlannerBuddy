@@ -253,4 +253,19 @@ public class UsersRepositoryTest {
         assertEquals(userList.size(), 0);
     }
     
+    @Test
+    void testDeleteTodo() {
+        Todo todo1 = new Todo();
+        todo1.setActivity("Eat with Kevin");
+
+        entityManager.persist(todo1);
+        entityManager.flush();
+
+        Todo checkTodo = todoRepository.save(todo1);
+        todoRepository.deleteById(checkTodo.getUid());
+        List<Todo> activityList = todoRepository.findAll();
+
+        assertNotEquals(activityList, null);
+        assertEquals(activityList.size(), 0);
+    }
 }
