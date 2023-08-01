@@ -571,11 +571,15 @@ ul li.checked::before {
 }
 
 .search-button {
-	background-color: rgb(152, 197, 152);
+	bottom: 15px; 
+	background-color :rgb(152, 197, 152);
 	color: white;
 	border: none;
 	border-radius: 3px;
-	size: 15px;
+	size: 10px;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	padding: 5px;
 }
 
 /* Chat container styles */
