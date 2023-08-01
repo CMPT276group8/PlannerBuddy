@@ -3,14 +3,7 @@ const form = document.getElementById("input-group");
 const input = document.getElementById("user-input");
 const messages = document.getElementById("chat-messages");
 
-// Comment the import out if want to test locally
-// import {apiKey} from './apikey.js';
-// import {apiKey} from '/etc/secrets/apikey.js';
-
-// Uncomment the const apiKey = ... to test locally 
-const apiKey = "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";
-
-console.log(apiKey);
+const apiKey = "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";
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
